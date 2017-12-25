@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import EmojiSelector, { Categories } from './EmojiSelector';
 
+const THEME = '#007AFF';
+
 export default class App extends React.Component {
   state = {
     emoji: ' '
@@ -11,11 +13,14 @@ export default class App extends React.Component {
     return (
       <SafeAreaView style={styles.container}>
         <Text>Please select the emoji you would like to use</Text>
-        <Text style={styles.display}>{this.state.emoji}</Text>
+        <View style={styles.display}>
+          <Text style={{fontSize: 64, backgroundColor: 'transparent'}}>{this.state.emoji}</Text>
+        </View>
         <EmojiSelector 
           onEmojiSelect={emoji => this.setState({emoji})}
           showSearchBar={true}
           showTabs={true}
+          category={Categories.people}
         />
       </SafeAreaView>
     );
@@ -31,6 +36,13 @@ const styles = StyleSheet.create({
   },
   display: {
     fontSize: 64,
-    margin: 24
+    width: 96,
+    height: 96,
+    margin: 24,
+    borderWidth: 2,
+    borderRadius: 12,
+    borderColor: THEME,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
