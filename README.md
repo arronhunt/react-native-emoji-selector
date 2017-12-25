@@ -39,6 +39,8 @@ import EmojiSelector, { Categories } from 'react-native-emoji-selector';
 
 The available categories are `all`, `people`, `nature`, `food`, `activities`, `places`, `objects`, `symbols`, and `flags`. 
 
+## Props
+
 |Prop|Type|Default|Description|
 |---|---|---|---|
 |onEmojiSelect|*func*| |Function called when a user selects an Emoji|
