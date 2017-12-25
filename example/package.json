@@ -19,12 +19,9 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "emoji-datasource": "^4.0.3",
     "expo": "^23.0.4",
-    "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-proptypes": "^1.0.0",
-    "string.fromcodepoint": "^0.2.1"
+    "react-proptypes": "^1.0.0"
   }
 }

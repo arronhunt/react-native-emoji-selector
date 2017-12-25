@@ -12,8 +12,6 @@
   "dependencies": {
     "emoji-datasource": "^4.0.3",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-native": "^0.51.0",
     "string.fromcodepoint": "^0.2.1"
   },
   "repository": {
