@@ -65,7 +65,7 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
             width: colSize,
             height: colSize,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}
         {...other}
     >
@@ -105,7 +105,7 @@ class EmojiSection extends Component {
     }
 }
 
-export default class EmojiPicker extends Component {
+export default class EmojiSelector extends Component {
     state = {
         searchQuery: '',
         category: Categories.people
@@ -130,20 +130,24 @@ export default class EmojiPicker extends Component {
     //
     renderTabs() {
         return Object.keys(Categories).map(c => {
+            const tabSize = width / Object.keys(Categories).length;
             if (c !== 'all') return (
                 <TouchableOpacity 
                     key={Categories[c].name}
                     onPress={() => this.handleTabSelect(Categories[c])}
                     style={{
                         flex: 1,
+                        height: tabSize,
                         borderColor: Categories[c] === this.state.category ? this.props.theme : '#EEEEEE',
-                        borderBottomWidth: 2
+                        borderBottomWidth: 2,
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                 >
                     <Text style={{
                         textAlign: 'center',
                         paddingBottom: 8,
-                        fontSize: (width / Object.keys(Categories).length) - 24
+                        fontSize: (tabSize) - 24
                     }}>
                         {Categories[c].symbol}
                     </Text>
@@ -208,38 +212,44 @@ export default class EmojiPicker extends Component {
             ...other
         } = this.props;
         const Searchbar = (
-            <TextInput
-                style={styles.search}
-                placeholder='Search...'
-                clearButtonMode='always'
-                returnKeyType='done'
-                autoCorrect={false}
-                underlineColorAndroid={this.props.theme}
-                value={this.state.searchQuery}
-                onChangeText={text => this.setState({ searchQuery: text })}
-            />
+            <View style={styles.searchbar_container}>
+                <TextInput
+                    style={styles.search}
+                    placeholder='Search...'
+                    clearButtonMode='always'
+                    returnKeyType='done'
+                    autoCorrect={false}
+                    underlineColorAndroid={this.props.theme}
+                    value={this.state.searchQuery}
+                    onChangeText={text => this.setState({ searchQuery: text })}
+                />
+            </View>
         );
         return (
             <View style={styles.frame} {...other}>
                 <View style={styles.tabBar}>
                     {this.props.showTabs && this.renderTabs()}
                 </View>
-                {this.props.showSearchBar && Searchbar}
-                <ScrollView 
-                    style={styles.scrollview}
-                    renderToHardwareTextureAndroid
-                    ref={scrollview => this.scrollview = scrollview}
-                >
-                    <View style={{flex: 1}}>
-                        {this.renderEmojis()}
-                    </View>
-                </ScrollView>
+                <View style={{flex: 1}}>
+                    {this.props.showSearchBar && Searchbar}
+                    <ScrollView 
+                        style={styles.scrollview}
+                        renderToHardwareTextureAndroid
+                        keyboardShouldPersistTaps
+                        contentContainerStyle={styles.scrollview_content}
+                        ref={scrollview => this.scrollview = scrollview}
+                    >
+                        <View style={{flex: 1}}>
+                            {this.renderEmojis()}
+                        </View>
+                    </ScrollView>
+                </View>
             </View>
         );
     }
 };
 
-EmojiPicker.propTypes = {
+EmojiSelector.propTypes = {
     /** Function called when a user selects an Emoji */
     onEmojiSelect: PropTypes.func.isRequired,
 
@@ -258,7 +268,7 @@ EmojiPicker.propTypes = {
     /** Number of columns accross */
     columns: PropTypes.number,
 }
-EmojiPicker.defaultProps = {
+EmojiSelector.defaultProps = {
     theme: '#007AFF',
     category: Categories.all,
     showTabs: true,
@@ -276,6 +286,15 @@ const styles = StyleSheet.create({
     },
     scrollview: {
         flex: 1
+    },
+    scrollview_content: {
+        paddingTop: 36 + 16 // Searchbar height + margin
+    },
+    searchbar_container: {
+        position: 'absolute',
+        width: '100%',
+        zIndex: 1,
+        backgroundColor: 'rgba(255,255,255,0.75)'
     },
     search: {
         ...Platform.select({
