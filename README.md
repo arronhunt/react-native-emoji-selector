@@ -1,8 +1,6 @@
 # react-native-emoji-selector
 
-## Demo
-
-
+![Image preview](./example/assets/cover.png)
 
 ## Installation
 
@@ -13,6 +11,10 @@ npm install --save react-native-emoji-selector
 ```
 import EmojiSelector from 'react-native-emoji-selector'
 ```
+
+## Demo
+
+![Demo GIF](./example/assets/demo.gif)
 
 ## Usage
 

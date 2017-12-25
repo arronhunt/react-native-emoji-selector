@@ -65,7 +65,7 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
             width: colSize,
             height: colSize,
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
         }}
         {...other}
     >
@@ -130,20 +130,24 @@ export default class EmojiSelector extends Component {
     //
     renderTabs() {
         return Object.keys(Categories).map(c => {
+            const tabSize = width / Object.keys(Categories).length;
             if (c !== 'all') return (
                 <TouchableOpacity 
                     key={Categories[c].name}
                     onPress={() => this.handleTabSelect(Categories[c])}
                     style={{
                         flex: 1,
+                        height: tabSize,
                         borderColor: Categories[c] === this.state.category ? this.props.theme : '#EEEEEE',
-                        borderBottomWidth: 2
+                        borderBottomWidth: 2,
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                 >
                     <Text style={{
                         textAlign: 'center',
                         paddingBottom: 8,
-                        fontSize: (width / Object.keys(Categories).length) - 24
+                        fontSize: (tabSize) - 24
                     }}>
                         {Categories[c].symbol}
                     </Text>

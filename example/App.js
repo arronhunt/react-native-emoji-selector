@@ -20,7 +20,6 @@ export default class App extends React.Component {
           onEmojiSelect={emoji => this.setState({emoji})}
           showSearchBar={true}
           showTabs={true}
-          category={Categories.people}
         />
       </SafeAreaView>
     );
@@ -33,6 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 24,
   },
   display: {
     fontSize: 64,
