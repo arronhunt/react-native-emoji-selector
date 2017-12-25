@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
-import EmojiSelector, { Categories } from './EmojiSelector';
+import EmojiSelector from '../';
+
+// import EmojiSelector, { Categories } from 'react-native-';
 
 const THEME = '#007AFF';
 
