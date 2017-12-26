@@ -81,7 +81,7 @@ class EmojiSection extends Component {
             <EmojiCell 
                 key={i}
                 emoji={e}
-                onPress={() => this.props.onEmojiSelect(e)}
+                onPress={() => this.props.onEmojiSelected(e)}
                 colSize={this.props.colSize}
             />
         ));
@@ -122,7 +122,7 @@ export default class EmojiSelector extends Component {
         })
     }
     handleEmojiSelect = (emoji) => {
-        this.props.onEmojiSelect(charFromEmojiObject(emoji));
+        this.props.onEmojiSelected(charFromEmojiObject(emoji));
     }
 
     //
@@ -164,7 +164,7 @@ export default class EmojiSelector extends Component {
                         title={Categories[c].name}
                         list={sortEmoji(emojiByCategory(Categories[c].name))}
                         colSize={Math.floor(width / this.props.columns)}
-                        onEmojiSelect={this.handleEmojiSelect}
+                        onEmojiSelected={this.handleEmojiSelect}
                         onLoadComplete={() => {}}
                     />
                 )                   
@@ -185,7 +185,7 @@ export default class EmojiSelector extends Component {
                     list={sortEmoji(list)}
                     title={hasSearchQuery ? 'Search results' : this.state.category.name}
                     colSize={Math.floor(width / this.props.columns)}
-                    onEmojiSelect={this.handleEmojiSelect}
+                    onEmojiSelected={this.handleEmojiSelect}
                     onLoadComplete={() => {}}
                 />
             );
@@ -235,7 +235,7 @@ export default class EmojiSelector extends Component {
                     <ScrollView 
                         style={styles.scrollview}
                         renderToHardwareTextureAndroid
-                        keyboardShouldPersistTaps
+                        keyboardShouldPersistTaps='always'
                         contentContainerStyle={styles.scrollview_content}
                         ref={scrollview => this.scrollview = scrollview}
                     >
@@ -251,7 +251,7 @@ export default class EmojiSelector extends Component {
 
 EmojiSelector.propTypes = {
     /** Function called when a user selects an Emoji */
-    onEmojiSelect: PropTypes.func.isRequired,
+    onEmojiSelected: PropTypes.func.isRequired,
 
     /** Theme color used for loaders and active tab indicator */
     theme: PropTypes.string,
