@@ -19,6 +19,7 @@ export default class App extends React.Component {
           onEmojiSelected={emoji => this.setState({emoji})}
           showSearchBar={true}
           showTabs={true}
+          showHistory={true}
         />
       </SafeAreaView>
     );
