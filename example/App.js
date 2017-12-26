@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
-import EmojiSelector, { Categories } from 'react-native-emoji-selector';
+import EmojiSelector, { Categories } from './module';
 const THEME = '#007AFF';
 
 export default class App extends React.Component {
@@ -16,7 +16,7 @@ export default class App extends React.Component {
           <Text style={{fontSize: 64, backgroundColor: 'transparent'}}>{this.state.emoji}</Text>
         </View>
         <EmojiSelector 
-          onEmojiSelect={emoji => this.setState({emoji})}
+          onEmojiSelected={emoji => this.setState({emoji})}
           showSearchBar={true}
           showTabs={true}
         />
