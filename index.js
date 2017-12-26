@@ -361,7 +361,7 @@ EmojiSelector.defaultProps = {
     category: Categories.all,
     showTabs: true,
     showSearchBar: true,
-    showHistory: true,
+    showHistory: false,
     columns: 6,
 }
 

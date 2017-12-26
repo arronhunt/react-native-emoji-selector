@@ -47,7 +47,7 @@ The available categories are `all`, `people`, `nature`, `food`, `activities`, `p
 |theme|*string*|`007AFF`|Theme color used for loaders and active tab indicator|
 |showTabs|*bool*|`true`|Toggle the tabs on or off|
 |showSearchbar|*bool*|`true`|Toggle the searchbar on or off|
-|showHistory|*bool*|`true`|Toggle the history tab on or off|
+|showHistory|*bool*|`false`|Toggle the history tab on or off|
 |category|*enum*|`.all`|Set the default category. Use the `Categories` class|
 |columns|*number*|`6`|Number of columns accross|
 
