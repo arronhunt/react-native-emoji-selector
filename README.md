@@ -21,7 +21,7 @@ import EmojiSelector from 'react-native-emoji-selector'
 ### Basic usage
 ```jsx
 <EmojiSelector
-    onEmojiSelect={emoji => console.log(emoji)}
+    onEmojiSelected={emoji => console.log(emoji)}
 />
 ```
 
@@ -33,7 +33,7 @@ import EmojiSelector, { Categories } from 'react-native-emoji-selector';
 
 <EmojiSelector
     category={Categories.symbols}
-    onEmojiSelect={emoji => console.log(emoji)}
+    onEmojiSelected={emoji => console.log(emoji)}
 />
 ```
 
@@ -43,7 +43,7 @@ The available categories are `all`, `people`, `nature`, `food`, `activities`, `p
 
 |Prop|Type|Default|Description|
 |---|---|---|---|
-|onEmojiSelect|*func*| |Function called when a user selects an Emoji|
+|onEmojiSelected|*func*| |Function called when a user selects an Emoji|
 |theme|*string*|`007AFF`|Theme color used for loaders and active tab indicator|
 |showTabs|*bool*|`true`|Toggle the tabs on or off|
 |showSearchbar|*bool*|`true`|Toggle the searchbar on or off
