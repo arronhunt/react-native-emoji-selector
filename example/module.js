@@ -138,8 +138,9 @@ export default class EmojiSelector extends Component {
     state = {
         searchQuery: '',
         category: Categories.people,
-        isReady: true,
+        isReady: false,
         history: [],
+        emojiList: null,
     }
 
     //
@@ -149,8 +150,8 @@ export default class EmojiSelector extends Component {
         this.scrollview.scrollTo({x: 0, y: 0, animated: false})
         this.setState({ 
             searchQuery: '',
-            category
-        })
+            category,
+        });       
     }
     handleEmojiSelect = (emoji) => {
         if (this.props.showHistory) {
@@ -230,7 +231,7 @@ export default class EmojiSelector extends Component {
                     <EmojiSection
                         key={c}
                         title={name}
-                        list={name === 'Recently used' ? this.state.history : sortEmoji(emojiByCategory(name))}
+                        list={name === 'Recently used' ? this.state.history : this.state.emojiList[name]}
                         colSize={Math.floor(width / this.props.columns)}
                         onEmojiSelected={this.handleEmojiSelect}
                         onLoadComplete={() => {}}
@@ -241,17 +242,18 @@ export default class EmojiSelector extends Component {
             let list;
             let hasSearchQuery = this.state.searchQuery !== '';
             let name = this.state.category.name;
-            if (hasSearchQuery)
-                list = emoji.filter(e => {
+            if (hasSearchQuery) {
+                let filtered = emoji.filter(e => {
                     // TODO: Use the short_names array instead of singular short_name
                     return e.short_name.includes(this.state.searchQuery.toLowerCase())
                 });
-            else 
-                list = emojiByCategory(name);
-            
+                list = sortEmoji(filtered);
+            } else {
+                list = this.state.emojiList[name];
+            }
             return (
                 <EmojiSection
-                    list={name === 'Recently used' ? this.state.history : sortEmoji(list)}
+                    list={name === 'Recently used' ? this.state.history : list}
                     title={hasSearchQuery ? 'Search results' : name}
                     colSize={Math.floor(width / this.props.columns)}
                     onEmojiSelected={this.handleEmojiSelect}
@@ -261,24 +263,35 @@ export default class EmojiSelector extends Component {
         }
     }
 
+    prerenderEmojis(cb) {
+        let emojiList = {};
+        Object.keys(Categories).forEach(c => {
+            let name = Categories[c].name;
+            emojiList[name] = sortEmoji(emojiByCategory(name));
+        });
+        this.setState({ emojiList }, cb);
+    }
+
     //
     //  LIFECYCLE METHODS
     //
     componentDidMount() {
-        // AsyncStorage.clear();
         const { category } = this.props;
-        this.setState({
-            category
-        });
+        this.setState({ category });
 
         if (this.props.showHistory)
             this.getHistory();
+        
+        this.prerenderEmojis(() => {
+            this.setState({isReady: true})
+        });
     }
     shouldComponentUpdate(nextProps, nextState) {
         if (
             this.state.category !== nextState.category || 
             this.state.searchQuery !== nextState.searchQuery ||
-            this.state.history !== nextState.history
+            this.state.history !== nextState.history ||
+            this.state.emojiList !== nextState.emojiList
         )
             return true;
         return false;
@@ -302,7 +315,7 @@ export default class EmojiSelector extends Component {
                 />
             </View>
         );
-        if (this.state.isReady) {
+
             return (
                 <View style={styles.frame} {...other}>
                     <View style={styles.tabBar}>
@@ -310,27 +323,26 @@ export default class EmojiSelector extends Component {
                     </View>
                     <View style={{flex: 1}}>
                         {this.props.showSearchBar && Searchbar}
-                        <ScrollView 
-                            style={styles.scrollview}
-                            renderToHardwareTextureAndroid
-                            keyboardShouldPersistTaps='always'
-                            contentContainerStyle={styles.scrollview_content}
-                            ref={scrollview => this.scrollview = scrollview}
-                        >
-                            <View style={{flex: 1}}>
-                                {this.renderEmojis()}
+                        {this.state.isReady ? (
+                             <ScrollView 
+                                style={styles.scrollview}
+                                renderToHardwareTextureAndroid
+                                keyboardShouldPersistTaps='always'
+                                contentContainerStyle={styles.scrollview_content}
+                                ref={scrollview => this.scrollview = scrollview}
+                            >
+                                <View style={{flex: 1}}>
+                                    {this.state.emojiList && this.renderEmojis()}
+                                </View>
+                            </ScrollView>
+                        ) : (
+                            <View style={styles.loader} {...other}>
+                                <ActivityIndicator size={0} />
                             </View>
-                        </ScrollView>
+                        )}
                     </View>
                 </View>
             );
-        } else {
-            return (
-                <View style={styles.frame} {...other}>
-                    <ActivityIndicator />
-                </View>
-            )
-        }
     }
 };
 
@@ -369,6 +381,11 @@ const styles = StyleSheet.create({
     frame: {
         flex: 1,
         width: '100%',
+    },
+    loader: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     tabBar: {
         flexDirection: 'row'
