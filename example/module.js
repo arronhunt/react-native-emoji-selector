@@ -244,8 +244,11 @@ export default class EmojiSelector extends Component {
             let name = this.state.category.name;
             if (hasSearchQuery) {
                 let filtered = emoji.filter(e => {
-                    // TODO: Use the short_names array instead of singular short_name
-                    return e.short_name.includes(this.state.searchQuery.toLowerCase())
+                    let display = false;
+                    e.short_names.forEach(name => {
+                        if(name.includes(this.state.searchQuery.toLowerCase())) display = true;
+                    })
+                    return display;
                 });
                 list = sortEmoji(filtered);
             } else {
