@@ -163,16 +163,14 @@ export default class EmojiSelector extends Component {
         AsyncStorage.getItem(storage_key).then(result => {
             let value = [];
             if (result) {
-                let json = JSON.parse(result);
-
+                const json = JSON.parse(result);
                 if (json.filter(r => r.unified === e.unified).length > 0)  {
                     value = json;
                 } else {
-                    let record = Object.assign({}, e, { count: 1 });
+                    const record = Object.assign({}, e, { count: 1 });
                     value = [record, ...json];
                 }
             }
-
             AsyncStorage.setItem(storage_key, JSON.stringify(value));
             this.setState({
                 history: value
@@ -191,19 +189,20 @@ export default class EmojiSelector extends Component {
     //  RENDER METHODS
     //
     renderTabs() {
-        let categories = Object.assign({}, Categories);
-        if (!this.props.showHistory)
-            delete categories.history;
-        return Object.keys(categories).map(c => {
-            const tabSize = width / Object.keys(categories).length;
+        // let categories = Object.assign({}, Categories);
+        // if (!this.props.showHistory)
+        //     delete categories.history;
+        return Object.keys(Categories).map(c => {
+            const tabSize = width / Object.keys(Categories).length;
+            const category = Categories[c];
             if (c !== 'all') return (
                 <TouchableOpacity 
-                    key={categories[c].name}
-                    onPress={() => this.handleTabSelect(categories[c])}
+                    key={category.name}
+                    onPress={() => this.handleTabSelect(category)}
                     style={{
                         flex: 1,
                         height: tabSize,
-                        borderColor: categories[c] === this.state.category ? this.props.theme : '#EEEEEE',
+                        borderColor: category === this.state.category ? this.props.theme : '#EEEEEE',
                         borderBottomWidth: 2,
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -214,19 +213,20 @@ export default class EmojiSelector extends Component {
                         paddingBottom: 8,
                         fontSize: (tabSize) - 24
                     }}>
-                        {categories[c].symbol}
+                        {category.symbol}
                     </Text>
                 </TouchableOpacity>
             )
         });
     }
     renderEmojis = () => {
-        let categories = Object.assign({}, Categories);
-        if (!this.props.showHistory)
-            delete categories.history;
-        if (this.state.category === categories.all && this.state.searchQuery === '') {
-            return Object.keys(categories).map(c => {
-                let name = categories[c].name;
+        // let categories = Object.assign({}, Categories);
+        // if (!this.props.showHistory)
+        //     delete categories.history;
+        console.log('Render emojis')
+        if (this.state.category === Categories.all && this.state.searchQuery === '') {
+            return Object.keys(Categories).map(c => {
+                const name = Categories[c].name;
                 if (c !== 'all') return (
                     <EmojiSection
                         key={c}
@@ -240,10 +240,10 @@ export default class EmojiSelector extends Component {
             });
         } else {
             let list;
-            let hasSearchQuery = this.state.searchQuery !== '';
-            let name = this.state.category.name;
+            const hasSearchQuery = this.state.searchQuery !== '';
+            const name = this.state.category.name;
             if (hasSearchQuery) {
-                let filtered = emoji.filter(e => {
+                const filtered = emoji.filter(e => {
                     let display = false;
                     e.short_names.forEach(name => {
                         if(name.includes(this.state.searchQuery.toLowerCase())) display = true;
