@@ -339,7 +339,7 @@ export default class EmojiSelector extends Component {
                             </ScrollView>
                         ) : (
                             <View style={styles.loader} {...other}>
-                                <ActivityIndicator size={0} />
+                                <ActivityIndicator size={'large'} color={this.props.theme} />
                             </View>
                         )}
                     </View>
