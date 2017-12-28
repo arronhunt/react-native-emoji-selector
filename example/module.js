@@ -147,11 +147,14 @@ export default class EmojiSelector extends Component {
     //  HANDLER METHODS
     //
     handleTabSelect = (category) => {
-        this.scrollview.scrollTo({x: 0, y: 0, animated: false})
-        this.setState({ 
-            searchQuery: '',
-            category,
-        });       
+        if (this.state.isReady) {
+            if (this.scrollview)
+                this.scrollview.scrollTo({x: 0, y: 0, animated: false});
+            this.setState({ 
+                searchQuery: '',
+                category,
+            });       
+        }
     }
     handleEmojiSelect = (emoji) => {
         if (this.props.showHistory) {
@@ -189,9 +192,6 @@ export default class EmojiSelector extends Component {
     //  RENDER METHODS
     //
     renderTabs() {
-        // let categories = Object.assign({}, Categories);
-        // if (!this.props.showHistory)
-        //     delete categories.history;
         return Object.keys(Categories).map(c => {
             const tabSize = width / Object.keys(Categories).length;
             const category = Categories[c];
@@ -220,10 +220,6 @@ export default class EmojiSelector extends Component {
         });
     }
     renderEmojis = () => {
-        // let categories = Object.assign({}, Categories);
-        // if (!this.props.showHistory)
-        //     delete categories.history;
-        console.log('Render emojis')
         if (this.state.category === Categories.all && this.state.searchQuery === '') {
             return Object.keys(Categories).map(c => {
                 const name = Categories[c].name;
@@ -231,7 +227,7 @@ export default class EmojiSelector extends Component {
                     <EmojiSection
                         key={c}
                         title={name}
-                        list={name === 'Recently used' ? this.state.history : this.state.emojiList[name]}
+                        list={name === Categories.history.name ? this.state.history : this.state.emojiList[name]}
                         colSize={Math.floor(width / this.props.columns)}
                         onEmojiSelected={this.handleEmojiSelect}
                         onLoadComplete={() => {}}
@@ -251,12 +247,14 @@ export default class EmojiSelector extends Component {
                     return display;
                 });
                 list = sortEmoji(filtered);
+            } else if (name === Categories.history.name) {
+                list = this.state.history
             } else {
                 list = this.state.emojiList[name];
             }
             return (
                 <EmojiSection
-                    list={name === 'Recently used' ? this.state.history : list}
+                    list={list}
                     title={hasSearchQuery ? 'Search results' : name}
                     colSize={Math.floor(width / this.props.columns)}
                     onEmojiSelected={this.handleEmojiSelect}
@@ -304,6 +302,7 @@ export default class EmojiSelector extends Component {
         const {
             ...other
         } = this.props;
+        console.log(this.state.searchQuery)
         const Searchbar = (
             <View style={styles.searchbar_container}>
                 <TextInput
