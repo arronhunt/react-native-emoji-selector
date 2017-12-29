@@ -12,6 +12,7 @@ import {
     ActivityIndicator,
     AsyncStorage,
     FlatList,
+    SectionList,
 } from 'react-native';
 import emoji from 'emoji-datasource';
 import 'string.fromcodepoint';
@@ -158,7 +159,7 @@ export default class EmojiSelector extends Component {
     //
     handleTabSelect = (category) => {
         if (this.state.isReady) {
-            if (this.scrollview)
+            if (this.sectionlist)
                 this.scrollview.scrollTo({x: 0, y: 0, animated: false});
             this.setState({ 
                 searchQuery: '',
@@ -229,16 +230,23 @@ export default class EmojiSelector extends Component {
             )
         });
     }
-    renderEmojis = () => {
-        if (this.state.category === Categories.all && this.state.searchQuery === '') {
+    renderEmojis() {
+        const { 
+            colSize,
+            history,
+            emojiList,
+            searchQuery,
+            category
+        } = this.state;
+        if (category === Categories.all && searchQuery === '') {
             return Object.keys(Categories).map(c => {
                 const name = Categories[c].name;
                 if (c !== 'all') return (
                     <EmojiSection
                         key={c}
                         title={name}
-                        list={name === Categories.history.name ? this.state.history : this.state.emojiList[name]}
-                        colSize={Math.floor(width / this.props.columns)}
+                        list={name === Categories.history.name ? history : emojiList[name]}
+                        colSize={colSize}
                         onEmojiSelected={this.handleEmojiSelect}
                         onLoadComplete={() => {}}
                     />
@@ -246,27 +254,27 @@ export default class EmojiSelector extends Component {
             });
         } else {
             let list;
-            const hasSearchQuery = this.state.searchQuery !== '';
-            const name = this.state.category.name;
+            const hasSearchQuery = searchQuery !== '';
+            const name = category.name;
             if (hasSearchQuery) {
                 const filtered = emoji.filter(e => {
                     let display = false;
                     e.short_names.forEach(name => {
-                        if(name.includes(this.state.searchQuery.toLowerCase())) display = true;
+                        if(name.includes(searchQuery.toLowerCase())) display = true;
                     })
                     return display;
                 });
                 list = sortEmoji(filtered);
             } else if (name === Categories.history.name) {
-                list = this.state.history
+                list = history
             } else {
-                list = this.state.emojiList[name];
+                list = emojiList[name];
             }
             return (
                 <EmojiSection
                     list={list}
                     title={hasSearchQuery ? 'Search results' : name}
-                    colSize={Math.floor(width / this.props.columns)}
+                    colSize={colSize}
                     onEmojiSelected={this.handleEmojiSelect}
                     onLoadComplete={() => {}}
                 />
@@ -275,20 +283,25 @@ export default class EmojiSelector extends Component {
     }
     renderEmojiListview() {
         // Not used due to poor performance
-        const list = this.state.emojiList[this.state.category.name];
+        const list = Object.keys(this.state.emojiList).map(s => ({
+            title: s,
+            data: this.state.emojiList[s]
+        }));
         return (
-            <FlatList
+            <SectionList
+                sections={list}
                 renderItem={({item}) => (
                     <View style={{flex: 1}}>
                         <EmojiCell 
                             emoji={item}
                             onPress={() => this.props.onEmojiSelected(item)}
-                            colSize={Math.floor(width / this.props.columns)}
+                            colSize={this.state.colSize}
                         />
                     </View>
                 )}
-                data={list}
+                renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
                 numColumns={this.props.columns}
+                ref={sectionlist => this.sectionlist = sectionlist}
             />
         )
     }
@@ -299,7 +312,10 @@ export default class EmojiSelector extends Component {
             let name = Categories[c].name;
             emojiList[name] = sortEmoji(emojiByCategory(name));
         });
-        this.setState({ emojiList }, cb);
+        this.setState({ 
+            emojiList, 
+            colSize: Math.floor(width / this.props.columns)
+        }, cb);
     }
 
     //
