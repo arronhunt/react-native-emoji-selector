@@ -11,6 +11,7 @@ import {
     Dimensions,
     ActivityIndicator,
     AsyncStorage,
+    FlatList,
 } from 'react-native';
 import emoji from 'emoji-datasource';
 import 'string.fromcodepoint';
@@ -86,22 +87,31 @@ const TabCell = ({onPress, active, theme, size, symbol}) => (
     </TouchableOpacity>
 );
 
-const EmojiCell = ({ emoji, colSize, ...other }) => (
-    <TouchableOpacity
-        activeOpacity={0.5}
-        style={{
-            width: colSize,
-            height: colSize,
-            alignItems: 'center',
-            justifyContent: 'center',
-        }}
-        {...other}
-    >
-        <Text style={{ fontSize: (colSize) - 12 }}>
-            {charFromEmojiObject(emoji)}
-        </Text>
-    </TouchableOpacity>
-);
+class EmojiCell extends Component {
+    shouldComponentUpdate(nextProps) {
+        if (this.props.emoji !== nextProps.emoji) return true;
+        return false;
+    }
+    render() {
+        const { emoji, colSize, ...other } = this.props;
+        return (
+            <TouchableOpacity
+                activeOpacity={0.5}
+                style={{
+                    width: colSize,
+                    height: colSize,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+                {...other}
+            >
+                <Text style={{ fontSize: (colSize) - 12 }}>
+                    {charFromEmojiObject(emoji)}
+                </Text>
+            </TouchableOpacity>
+        )
+    }
+};
 
 class EmojiSection extends Component {
     renderCells() {
@@ -263,6 +273,25 @@ export default class EmojiSelector extends Component {
             );
         }
     }
+    renderEmojiListview() {
+        // Not used due to poor performance
+        const list = this.state.emojiList[this.state.category.name];
+        return (
+            <FlatList
+                renderItem={({item}) => (
+                    <View style={{flex: 1}}>
+                        <EmojiCell 
+                            emoji={item}
+                            onPress={() => this.props.onEmojiSelected(item)}
+                            colSize={Math.floor(width / this.props.columns)}
+                        />
+                    </View>
+                )}
+                data={list}
+                numColumns={this.props.columns}
+            />
+        )
+    }
 
     prerenderEmojis(cb) {
         let emojiList = {};
@@ -339,7 +368,7 @@ export default class EmojiSelector extends Component {
                             </ScrollView>
                         ) : (
                             <View style={styles.loader} {...other}>
-                                <ActivityIndicator size={'large'} color={this.props.theme} />
+                                <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
                             </View>
                         )}
                     </View>
