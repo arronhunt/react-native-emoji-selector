@@ -20,6 +20,7 @@ export default class App extends React.Component {
           showSearchBar={true}
           showTabs={true}
           showHistory={true}
+          category={Categories.people}
         />
       </SafeAreaView>
     );

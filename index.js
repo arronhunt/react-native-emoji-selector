@@ -332,16 +332,6 @@ export default class EmojiSelector extends Component {
             this.setState({isReady: true})
         });
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        if (
-            this.state.category !== nextState.category || 
-            this.state.searchQuery !== nextState.searchQuery ||
-            this.state.history !== nextState.history ||
-            this.state.emojiList !== nextState.emojiList
-        )
-            return true;
-        return false;
-    }
     
     render() {
         const {
@@ -362,34 +352,33 @@ export default class EmojiSelector extends Component {
                 />
             </View>
         );
-
-            return (
-                <View style={styles.frame} {...other}>
-                    <View style={styles.tabBar}>
-                        {this.props.showTabs && this.renderTabs()}
-                    </View>
-                    <View style={{flex: 1}}>
-                        {this.props.showSearchBar && Searchbar}
-                        {this.state.isReady ? (
-                             <ScrollView 
-                                style={styles.scrollview}
-                                renderToHardwareTextureAndroid
-                                keyboardShouldPersistTaps='always'
-                                contentContainerStyle={styles.scrollview_content}
-                                ref={scrollview => this.scrollview = scrollview}
-                            >
-                                <View style={{flex: 1}}>
-                                    {this.state.emojiList && this.renderEmojis()}
-                                </View>
-                            </ScrollView>
-                        ) : (
-                            <View style={styles.loader} {...other}>
-                                <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
-                            </View>
-                        )}
-                    </View>
+        return (
+            <View style={styles.frame} {...other}>
+                <View style={styles.tabBar}>
+                    {this.props.showTabs && this.renderTabs()}
                 </View>
-            );
+                <View style={{flex: 1}}>
+                    {this.props.showSearchBar && Searchbar}
+                    {this.state.isReady ? (
+                        <ScrollView 
+                            style={styles.scrollview}
+                            renderToHardwareTextureAndroid
+                            keyboardShouldPersistTaps='always'
+                            contentContainerStyle={styles.scrollview_content}
+                            ref={scrollview => this.scrollview = scrollview}
+                        >
+                            <View style={{flex: 1}}>
+                                {this.state.emojiList && this.renderEmojis()}
+                            </View>
+                        </ScrollView>
+                    ) : (
+                        <View style={styles.loader} {...other}>
+                            <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
+                        </View>
+                    )}
+                </View>
+            </View>
+        );
     }
 };
 
