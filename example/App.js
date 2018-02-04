@@ -16,7 +16,7 @@ export default class App extends React.Component {
           <Text style={{fontSize: 64, backgroundColor: 'transparent'}}>{this.state.emoji}</Text>
         </View>
         <EmojiSelector 
-          onEmojiSelected={emoji => this.setState({emoji})}
+          onEmojiSelected={emoji => this.setState({ emoji })}
           showSearchBar={true}
           showTabs={true}
           showHistory={true}
