@@ -135,6 +135,7 @@ export default class EmojiSelector extends Component {
         isReady: false,
         history: [],
         emojiList: null,
+        colSize: 0
     }
 
     //
@@ -142,8 +143,8 @@ export default class EmojiSelector extends Component {
     //
     handleTabSelect = (category) => {
         if (this.state.isReady) {
-            if (this.sectionlist)
-                this.scrollview.scrollTo({x: 0, y: 0, animated: false});
+            if (this.scrollview)
+                this.scrollview.scrollToOffset({x: 0, y: 0, animated: false});
             this.setState({ 
                 searchQuery: '',
                 category,
@@ -213,7 +214,7 @@ export default class EmojiSelector extends Component {
             )
         });
     }
-    renderEmojis() {
+    returnSectionData() {
         const { 
             colSize,
             history,
@@ -222,20 +223,17 @@ export default class EmojiSelector extends Component {
             category
         } = this.state;
         if (category === Categories.all && searchQuery === '') {
-            return Object.keys(Categories).map(c => {
+            //TODO: OPTIMIZE THIS
+            let largeList =  [];
+            Object.keys(Categories).forEach(c => {
                 const name = Categories[c].name;
-                if (c !== 'all') return (
-                    <EmojiSection
-                        key={c}
-                        title={name}
-                        list={name === Categories.history.name ? history : emojiList[name]}
-                        colSize={colSize}
-                        colCount={this.props.columns}
-                        onEmojiSelected={this.handleEmojiSelect}
-                        onLoadComplete={() => {}}
-                    />
-                )                   
+                const list = name === Categories.history.name ? history : emojiList[name]  
+                if (c !== 'all' && c !== 'history') 
+                    largeList = largeList.concat(list);
             });
+
+            return (largeList.map(emoji => ({ key: emoji.unified, emoji })))
+
         } else {
             let list;
             const hasSearchQuery = searchQuery !== '';
@@ -254,16 +252,7 @@ export default class EmojiSelector extends Component {
             } else {
                 list = emojiList[name];
             }
-            return (
-                <EmojiSection
-                    list={list}
-                    title={hasSearchQuery ? 'Search results' : name}
-                    colSize={colSize}
-                    onEmojiSelected={this.handleEmojiSelect}
-                    onLoadComplete={() => {}}
-                    colCount={this.props.columns}
-                />
-            );
+            return (list.map(emoji => ({ key: emoji.unified, emoji })))
         }
     }
 
@@ -296,6 +285,11 @@ export default class EmojiSelector extends Component {
     
     render() {
         const {
+            columns,
+            showHistory,
+            showSearchBar,
+            showSectionTitles,
+            showTabs,
             ...other
         } = this.props;
         const Searchbar = (
@@ -312,16 +306,39 @@ export default class EmojiSelector extends Component {
                 />
             </View>
         );
+
+        const title = this.state.searchQuery !== '' ? 'Search Results' : this.state.category.name;
+
         return (
             <View style={styles.frame} {...other}>
                 <View style={styles.tabBar}>
-                    {this.props.showTabs && this.renderTabs()}
+                    {showTabs && this.renderTabs()}
                 </View>
                 <View style={{flex: 1}}>
-                    {this.props.showSearchBar && Searchbar}
+                    {showSearchBar && Searchbar}
                     {this.state.isReady ? (
                         <View style={{flex: 1}}>
-                            {this.state.emojiList && this.renderEmojis()}
+                            <View style={styles.container}>
+                                {showSectionTitles && <Text style={styles.sectionHeader}>{title}</Text>}
+                                <FlatList
+                                    style={styles.scrollview}
+                                    contentContainerStyle={{ paddingBottom: this.state.colSize }}
+                                    data={this.returnSectionData()}
+                                    renderItem={({item}) => (
+                                        <EmojiCell 
+                                            key={item.key}
+                                            emoji={item.emoji}
+                                            onPress={() => this.handleEmojiSelect(item.emoji)}
+                                            colSize={this.state.colSize}
+                                        />
+                                    )}
+                                    horizontal={false}
+                                    numColumns={columns}
+                                    keyboardShouldPersistTaps={'always'}
+                                    ref={scrollview => this.scrollview = scrollview}
+                                    removeClippedSubviews
+                                />
+                            </View>
                         </View>
                     ) : (
                         <View style={styles.loader} {...other}>
@@ -350,6 +367,9 @@ EmojiSelector.propTypes = {
     /** Toggle the history section on or off */
     showHistory: PropTypes.bool,
 
+    /** Toggle section title on or off */
+    showSectionTitles: PropTypes.bool,
+
     /** Set the default category. Use the `Categories` class */
     category: PropTypes.object,
 
@@ -362,6 +382,7 @@ EmojiSelector.defaultProps = {
     showTabs: true,
     showSearchBar: true,
     showHistory: false,
+    showSectionTitles: true,
     columns: 6,
 }
 
@@ -382,7 +403,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     searchbar_container: {
-        position: 'absolute',
         width: '100%',
         zIndex: 1,
         backgroundColor: 'rgba(255,255,255,0.75)'
@@ -405,7 +425,6 @@ const styles = StyleSheet.create({
     },
     sectionHeader: {
         margin: 8,
-        marginTop: 24,
         fontSize: 17,
         width: '100%',
         color: '#8F8F8F'

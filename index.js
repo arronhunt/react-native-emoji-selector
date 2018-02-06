@@ -12,7 +12,6 @@ import {
     ActivityIndicator,
     AsyncStorage,
     FlatList,
-    SectionList,
 } from 'react-native';
 import emoji from 'emoji-datasource';
 import 'string.fromcodepoint';
@@ -66,7 +65,7 @@ const emojiByCategory = category => emoji.filter(e => e.category === category);
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const { width } = Dimensions.get("screen");
 
-const TabCell = ({onPress, active, theme, size, symbol}) => (
+const TabCell = ({ onPress, active, theme, size, symbol }) => (
     <TouchableOpacity 
         onPress={onPress}
         style={{
@@ -88,61 +87,45 @@ const TabCell = ({onPress, active, theme, size, symbol}) => (
     </TouchableOpacity>
 );
 
-class EmojiCell extends Component {
-    shouldComponentUpdate(nextProps) {
-        if (this.props.emoji !== nextProps.emoji) return true;
-        return false;
-    }
-    render() {
-        const { emoji, colSize, ...other } = this.props;
-        return (
-            <TouchableOpacity
-                activeOpacity={0.5}
-                style={{
-                    width: colSize,
-                    height: colSize,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-                {...other}
-            >
-                <Text style={{ fontSize: (colSize) - 12 }}>
-                    {charFromEmojiObject(emoji)}
-                </Text>
-            </TouchableOpacity>
-        )
-    }
-};
+const EmojiCell = ({ emoji, colSize, ...other }) => (
+    <TouchableOpacity
+        activeOpacity={0.5}
+        style={{
+            width: colSize,
+            height: colSize,
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}
+        {...other}
+    >
+        <Text style={{ fontSize: (colSize) - 12 }}>
+            {charFromEmojiObject(emoji)}
+        </Text>
+    </TouchableOpacity>
+);
 
-class EmojiSection extends Component {
-    renderCells() {
-        return this.props.list.map((e, i) => (
-            <EmojiCell 
-                key={i}
-                emoji={e}
-                onPress={() => this.props.onEmojiSelected(e)}
-                colSize={this.props.colSize}
-            />
-        ));
-    }
-    componentDidMount() {
-        this.props.onLoadComplete();
-    }
-    shouldComponentUpdate(nextProps) {
-        if (this.props.list !== nextProps.list) {
-            return true;
-        };
-        return false;
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.sectionHeader}>{this.props.title}</Text>
-                {this.renderCells()}
-            </View>
-        )
-    }
-}
+const EmojiSection = ({ title, list, colSize, colCount, onLoadComplete, onEmojiSelected }) => (
+    <View style={styles.container}>
+        <Text style={styles.sectionHeader}>{title}</Text>
+        <FlatList
+            style={styles.scrollview}
+            contentContainerStyle={{ paddingBottom: colSize }}
+            data={list.map(emoji => ({ key: emoji.unified, emoji }))}
+            renderItem={({item}) => (
+                <EmojiCell 
+                    key={item.key}
+                    emoji={item.emoji}
+                    onPress={() => onEmojiSelected(item.emoji)}
+                    colSize={colSize}
+                />
+            )}
+            horizontal={false}
+            numColumns={colCount}
+            keyboardShouldPersistTaps={'always'}
+            removeClippedSubviews
+        />
+    </View>
+);
 
 const storage_key = '@react-native-emoji-selector:HISTORY';
 export default class EmojiSelector extends Component {
@@ -152,6 +135,7 @@ export default class EmojiSelector extends Component {
         isReady: false,
         history: [],
         emojiList: null,
+        colSize: 0
     }
 
     //
@@ -159,8 +143,8 @@ export default class EmojiSelector extends Component {
     //
     handleTabSelect = (category) => {
         if (this.state.isReady) {
-            if (this.sectionlist)
-                this.scrollview.scrollTo({x: 0, y: 0, animated: false});
+            if (this.scrollview)
+                this.scrollview.scrollToOffset({x: 0, y: 0, animated: false});
             this.setState({ 
                 searchQuery: '',
                 category,
@@ -230,7 +214,7 @@ export default class EmojiSelector extends Component {
             )
         });
     }
-    renderEmojis() {
+    returnSectionData() {
         const { 
             colSize,
             history,
@@ -239,19 +223,17 @@ export default class EmojiSelector extends Component {
             category
         } = this.state;
         if (category === Categories.all && searchQuery === '') {
-            return Object.keys(Categories).map(c => {
+            //TODO: OPTIMIZE THIS
+            let largeList =  [];
+            Object.keys(Categories).forEach(c => {
                 const name = Categories[c].name;
-                if (c !== 'all') return (
-                    <EmojiSection
-                        key={c}
-                        title={name}
-                        list={name === Categories.history.name ? history : emojiList[name]}
-                        colSize={colSize}
-                        onEmojiSelected={this.handleEmojiSelect}
-                        onLoadComplete={() => {}}
-                    />
-                )                   
+                const list = name === Categories.history.name ? history : emojiList[name]  
+                if (c !== 'all' && c !== 'history') 
+                    largeList = largeList.concat(list);
             });
+
+            return (largeList.map(emoji => ({ key: emoji.unified, emoji })))
+
         } else {
             let list;
             const hasSearchQuery = searchQuery !== '';
@@ -270,40 +252,8 @@ export default class EmojiSelector extends Component {
             } else {
                 list = emojiList[name];
             }
-            return (
-                <EmojiSection
-                    list={list}
-                    title={hasSearchQuery ? 'Search results' : name}
-                    colSize={colSize}
-                    onEmojiSelected={this.handleEmojiSelect}
-                    onLoadComplete={() => {}}
-                />
-            );
+            return (list.map(emoji => ({ key: emoji.unified, emoji })))
         }
-    }
-    renderEmojiListview() {
-        // Not used due to poor performance
-        const list = Object.keys(this.state.emojiList).map(s => ({
-            title: s,
-            data: this.state.emojiList[s]
-        }));
-        return (
-            <SectionList
-                sections={list}
-                renderItem={({item}) => (
-                    <View style={{flex: 1}}>
-                        <EmojiCell 
-                            emoji={item}
-                            onPress={() => this.props.onEmojiSelected(item)}
-                            colSize={this.state.colSize}
-                        />
-                    </View>
-                )}
-                renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
-                numColumns={this.props.columns}
-                ref={sectionlist => this.sectionlist = sectionlist}
-            />
-        )
     }
 
     prerenderEmojis(cb) {
@@ -335,9 +285,13 @@ export default class EmojiSelector extends Component {
     
     render() {
         const {
+            columns,
+            showHistory,
+            showSearchBar,
+            showSectionTitles,
+            showTabs,
             ...other
         } = this.props;
-        console.log(this.state.searchQuery)
         const Searchbar = (
             <View style={styles.searchbar_container}>
                 <TextInput
@@ -352,25 +306,40 @@ export default class EmojiSelector extends Component {
                 />
             </View>
         );
+
+        const title = this.state.searchQuery !== '' ? 'Search Results' : this.state.category.name;
+
         return (
             <View style={styles.frame} {...other}>
                 <View style={styles.tabBar}>
-                    {this.props.showTabs && this.renderTabs()}
+                    {showTabs && this.renderTabs()}
                 </View>
                 <View style={{flex: 1}}>
-                    {this.props.showSearchBar && Searchbar}
+                    {showSearchBar && Searchbar}
                     {this.state.isReady ? (
-                        <ScrollView 
-                            style={styles.scrollview}
-                            renderToHardwareTextureAndroid
-                            keyboardShouldPersistTaps='always'
-                            contentContainerStyle={styles.scrollview_content}
-                            ref={scrollview => this.scrollview = scrollview}
-                        >
-                            <View style={{flex: 1}}>
-                                {this.state.emojiList && this.renderEmojis()}
+                        <View style={{flex: 1}}>
+                            <View style={styles.container}>
+                                {showSectionTitles && <Text style={styles.sectionHeader}>{title}</Text>}
+                                <FlatList
+                                    style={styles.scrollview}
+                                    contentContainerStyle={{ paddingBottom: this.state.colSize }}
+                                    data={this.returnSectionData()}
+                                    renderItem={({item}) => (
+                                        <EmojiCell 
+                                            key={item.key}
+                                            emoji={item.emoji}
+                                            onPress={() => this.handleEmojiSelect(item.emoji)}
+                                            colSize={this.state.colSize}
+                                        />
+                                    )}
+                                    horizontal={false}
+                                    numColumns={columns}
+                                    keyboardShouldPersistTaps={'always'}
+                                    ref={scrollview => this.scrollview = scrollview}
+                                    removeClippedSubviews
+                                />
                             </View>
-                        </ScrollView>
+                        </View>
                     ) : (
                         <View style={styles.loader} {...other}>
                             <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
@@ -398,6 +367,9 @@ EmojiSelector.propTypes = {
     /** Toggle the history section on or off */
     showHistory: PropTypes.bool,
 
+    /** Toggle section title on or off */
+    showSectionTitles: PropTypes.bool,
+
     /** Set the default category. Use the `Categories` class */
     category: PropTypes.object,
 
@@ -410,6 +382,7 @@ EmojiSelector.defaultProps = {
     showTabs: true,
     showSearchBar: true,
     showHistory: false,
+    showSectionTitles: true,
     columns: 6,
 }
 
@@ -427,13 +400,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     scrollview: {
-        flex: 1
-    },
-    scrollview_content: {
-        paddingTop: 36 + 16 // Searchbar height + margin
+        flex: 1,
     },
     searchbar_container: {
-        position: 'absolute',
         width: '100%',
         zIndex: 1,
         backgroundColor: 'rgba(255,255,255,0.75)'
@@ -456,7 +425,6 @@ const styles = StyleSheet.create({
     },
     sectionHeader: {
         margin: 8,
-        marginTop: 24,
         fontSize: 17,
         width: '100%',
         color: '#8F8F8F'
