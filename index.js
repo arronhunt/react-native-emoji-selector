@@ -64,6 +64,7 @@ export const charFromEmojiObject = obj => charFromUtf16(obj.unified);
 const emojiByCategory = category => emoji.filter(e => e.category === category);
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const { width } = Dimensions.get("screen");
+const categoryKeys = Object.keys(Categories);
 
 const TabCell = ({ onPress, active, theme, size, symbol }) => (
     <TouchableOpacity 
@@ -86,6 +87,37 @@ const TabCell = ({ onPress, active, theme, size, symbol }) => (
         </Text>
     </TouchableOpacity>
 );
+
+const TabBar = ({ theme, activeCategory, onPress }) => {
+    return (
+        categoryKeys.map(c => {
+            const tabSize = width / categoryKeys.length;
+            const category = Categories[c];
+            if (c !== 'all') return (
+                <TouchableOpacity 
+                    key={category.name}
+                    onPress={() => onPress(category)}
+                    style={{
+                        flex: 1,
+                        height: tabSize,
+                        borderColor: category === activeCategory ? theme : '#EEEEEE',
+                        borderBottomWidth: 2,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Text style={{
+                        textAlign: 'center',
+                        paddingBottom: 8,
+                        fontSize: (tabSize) - 24
+                    }}>
+                        {category.symbol}
+                    </Text>
+                </TouchableOpacity>
+            )
+        })
+    )
+};
 
 const EmojiCell = ({ emoji, colSize, ...other }) => (
     <TouchableOpacity
@@ -186,34 +218,6 @@ export default class EmojiSelector extends Component {
     //
     //  RENDER METHODS
     //
-    renderTabs() {
-        return Object.keys(Categories).map(c => {
-            const tabSize = width / Object.keys(Categories).length;
-            const category = Categories[c];
-            if (c !== 'all') return (
-                <TouchableOpacity 
-                    key={category.name}
-                    onPress={() => this.handleTabSelect(category)}
-                    style={{
-                        flex: 1,
-                        height: tabSize,
-                        borderColor: category === this.state.category ? this.props.theme : '#EEEEEE',
-                        borderBottomWidth: 2,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
-                >
-                    <Text style={{
-                        textAlign: 'center',
-                        paddingBottom: 8,
-                        fontSize: (tabSize) - 24
-                    }}>
-                        {category.symbol}
-                    </Text>
-                </TouchableOpacity>
-            )
-        });
-    }
     returnSectionData() {
         const { 
             colSize,
@@ -225,7 +229,7 @@ export default class EmojiSelector extends Component {
         if (category === Categories.all && searchQuery === '') {
             //TODO: OPTIMIZE THIS
             let largeList =  [];
-            Object.keys(Categories).forEach(c => {
+            categoryKeys.forEach(c => {
                 const name = Categories[c].name;
                 const list = name === Categories.history.name ? history : emojiList[name]  
                 if (c !== 'all' && c !== 'history') 
@@ -258,7 +262,7 @@ export default class EmojiSelector extends Component {
 
     prerenderEmojis(cb) {
         let emojiList = {};
-        Object.keys(Categories).forEach(c => {
+        categoryKeys.forEach(c => {
             let name = Categories[c].name;
             emojiList[name] = sortEmoji(emojiByCategory(name));
         });
@@ -285,6 +289,7 @@ export default class EmojiSelector extends Component {
     
     render() {
         const {
+            theme,
             columns,
             showHistory,
             showSearchBar,
@@ -312,7 +317,13 @@ export default class EmojiSelector extends Component {
         return (
             <View style={styles.frame} {...other}>
                 <View style={styles.tabBar}>
-                    {showTabs && this.renderTabs()}
+                    { showTabs && (
+                        <TabBar 
+                            activeCategory={this.state.category}
+                            onPress={this.handleTabSelect}
+                            theme={theme}
+                        />
+                    )}
                 </View>
                 <View style={{flex: 1}}>
                     {showSearchBar && Searchbar}
@@ -356,7 +367,10 @@ EmojiSelector.propTypes = {
     onEmojiSelected: PropTypes.func.isRequired,
 
     /** Theme color used for loaders and active tab indicator */
-    theme: PropTypes.string,
+    theme: PropTypes.oneOfType([
+        PropTypes.string, // legacy
+        PropTypes.object
+    ]),
 
     /** Toggle the tabs on or off */
     showTabs: PropTypes.bool,
