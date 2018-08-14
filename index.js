@@ -301,7 +301,7 @@ export default class EmojiSelector extends Component {
             <View style={styles.searchbar_container}>
                 <TextInput
                     style={styles.search}
-                    placeholder='Search...'
+                    placeholder={this.props.placeholder}
                     clearButtonMode='always'
                     returnKeyType='done'
                     autoCorrect={false}
@@ -371,6 +371,9 @@ EmojiSelector.propTypes = {
         PropTypes.string, // legacy
         PropTypes.object
     ]),
+    
+    /** Placeholder of search input */
+    placeholder: PropTypes.string,
 
     /** Toggle the tabs on or off */
     showTabs: PropTypes.bool,
@@ -398,6 +401,7 @@ EmojiSelector.defaultProps = {
     showHistory: false,
     showSectionTitles: true,
     columns: 6,
+    placeholder: 'Search...'
 }
 
 const styles = StyleSheet.create({
