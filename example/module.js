@@ -65,28 +65,6 @@ const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const { width } = Dimensions.get("screen");
 const categoryKeys = Object.keys(Categories);
 
-const TabCell = ({ onPress, active, theme, size, symbol }) => (
-  <TouchableOpacity 
-    onPress={onPress}
-    style={{
-      flex: 1,
-      height: size,
-      borderColor: active ? theme : '#EEEEEE',
-      borderBottomWidth: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-  <Text style={{
-    textAlign: 'center',
-    paddingBottom: 8,
-    fontSize: size - 24
-  }}>
-    {symbol}
-  </Text>
-  </TouchableOpacity>
-);
-
 const TabBar = ({ theme, activeCategory, onPress }) => {
   return (
     categoryKeys.map(c => {
