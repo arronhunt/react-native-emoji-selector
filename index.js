@@ -183,36 +183,41 @@ export default class EmojiSelector extends Component {
       });       
     }
   }
+  
   handleEmojiSelect = (emoji) => {
     if (this.props.showHistory) {
-      this.addToHistory(emoji);
+      this.addToHistoryAsync(emoji);
     }
     this.props.onEmojiSelected(charFromEmojiObject(emoji));
   }
-  addToHistory = (e) => {
-    AsyncStorage.getItem(storage_key).then(result => {
+
+  addToHistoryAsync = async (e) => {
+    let result = await AsyncStorage.getItem(storage_key)
+    if (result) {
       let value = [];
-      if (result) {
-        const json = JSON.parse(result);
-        if (json.filter(r => r.unified === e.unified).length > 0)  {
-          value = json;
-        } else {
-          const record = Object.assign({}, e, { count: 1 });
-          value = [record, ...json];
-        }
+      let json = JSON.parse(result);
+
+      if (json.filter(r => r.unified === e.unified).length > 0)  {
+        value = json;
+      } else {
+        const record = Object.assign({}, e, { count: 1 });
+        value = [record, ...json];
       }
+
       AsyncStorage.setItem(storage_key, JSON.stringify(value));
       this.setState({
         history: value
       });
-    });
+    }
   }
-  getHistory = () => {
-    AsyncStorage.getItem(storage_key)
-    .then(result => JSON.parse(result))
-    .then(history => {
-      if (history) this.setState({ history });
-    });
+
+  loadHistoryAsync = async () => {
+    let result = await AsyncStorage.getItem(storage_key);
+
+    if (result) {
+      let history = JSON.parse(result);
+      this.setState({ history });
+    }
   }
 
   //
@@ -288,11 +293,12 @@ export default class EmojiSelector extends Component {
     const { category } = this.props;
     this.setState({ category });
 
-    if (this.props.showHistory)
-      this.getHistory();
+    if (this.props.showHistory) {
+      this.loadHistoryAsync();
+    }      
     
     this.prerenderEmojis(() => {
-      this.setState({isReady: true})
+      this.setState({ isReady: true })
     });
   }
     
