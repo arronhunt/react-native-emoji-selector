@@ -107,7 +107,7 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
     }}
     {...other}
   >
-    <Text style={{ fontSize: (colSize) - 12 }}>
+    <Text style={{ color: '#FFFFFF', fontSize: (colSize) - 12 }}>
       { charFromEmojiObject(emoji) }
     </Text>
   </TouchableOpacity>
