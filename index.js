@@ -315,49 +315,49 @@ export default class EmojiSelector extends Component {
     const title = this.state.searchQuery !== '' ? 'Search Results' : this.state.category.name;
 
     return (
-        <View style={styles.frame} {...other}>
-          <View style={styles.tabBar}>
-            { showTabs && (
-              <TabBar 
-                activeCategory={this.state.category}
-                onPress={this.handleTabSelect}
-                theme={theme}
-              />
-            )}
-          </View>
-          <View style={{flex: 1}}>
-            {showSearchBar && Searchbar}
-            {this.state.isReady ? (
-              <View style={{flex: 1}}>
-                <View style={styles.container}>
-                  {showSectionTitles && <Text style={styles.sectionHeader}>{title}</Text>}
-                  <FlatList
-                    style={styles.scrollview}
-                    contentContainerStyle={{ paddingBottom: this.state.colSize }}
-                    data={this.returnSectionData()}
-                    renderItem={({item}) => (
-                      <EmojiCell 
-                        key={item.key}
-                        emoji={item.emoji}
-                        onPress={() => this.handleEmojiSelect(item.emoji)}
-                        colSize={this.state.colSize}
-                      />
-                    )}
-                    horizontal={false}
-                    numColumns={columns}
-                    keyboardShouldPersistTaps={'always'}
-                    ref={scrollview => this.scrollview = scrollview}
-                    removeClippedSubviews
-                  />
-                </View>
-              </View>
-            ) : (
-              <View style={styles.loader} {...other}>
-                <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
-              </View>
-            )}
-          </View>
+      <View style={styles.frame} {...other}>
+        <View style={styles.tabBar}>
+          { showTabs && (
+            <TabBar 
+              activeCategory={this.state.category}
+              onPress={this.handleTabSelect}
+              theme={theme}
+            />
+          )}
         </View>
+        <View style={{flex: 1}}>
+          {showSearchBar && Searchbar}
+          {this.state.isReady ? (
+            <View style={{flex: 1}}>
+              <View style={styles.container}>
+                {showSectionTitles && <Text style={styles.sectionHeader}>{title}</Text>}
+                <FlatList
+                  style={styles.scrollview}
+                  contentContainerStyle={{ paddingBottom: this.state.colSize }}
+                  data={this.returnSectionData()}
+                  renderItem={({item}) => (
+                    <EmojiCell 
+                      key={item.key}
+                      emoji={item.emoji}
+                      onPress={() => this.handleEmojiSelect(item.emoji)}
+                      colSize={this.state.colSize}
+                    />
+                  )}
+                  horizontal={false}
+                  numColumns={columns}
+                  keyboardShouldPersistTaps={'always'}
+                  ref={scrollview => this.scrollview = scrollview}
+                  removeClippedSubviews
+                />
+              </View>
+            </View>
+          ) : (
+            <View style={styles.loader} {...other}>
+              <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
+            </View>
+          )}
+        </View>
+      </View>
     );
   }
 };
