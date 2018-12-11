@@ -191,6 +191,10 @@ export default class EmojiSelector extends Component {
     this.props.onEmojiSelected(charFromEmojiObject(emoji));
   }
 
+  handleSearch = (searchQuery) => {
+    this.setState({ searchQuery });
+  }
+
   addToHistoryAsync = async (e) => {
     let result = await AsyncStorage.getItem(storage_key)
     if (result) {
@@ -331,7 +335,7 @@ export default class EmojiSelector extends Component {
           autoCorrect={false}
           underlineColorAndroid={theme}
           value={searchQuery}
-          onChangeText={text => this.setState({ searchQuery: text })}
+          onChangeText={this.handleSearch}
         />
       </View>
     );
