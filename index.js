@@ -130,9 +130,9 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
     }}
     {...other}
   >
-  <Text style={{ fontSize: (colSize) - 12 }}>
-    {charFromEmojiObject(emoji)}
-  </Text>
+    <Text style={{ fontSize: (colSize) - 12 }}>
+      { charFromEmojiObject(emoji) }
+    </Text>
   </TouchableOpacity>
 );
 
@@ -218,6 +218,15 @@ export default class EmojiSelector extends Component {
   //
   //  RENDER METHODS
   //
+  renderEmojiCell = ({ item }) => (
+    <EmojiCell 
+      key={item.key}
+      emoji={item.emoji}
+      onPress={() => this.handleEmojiSelect(item.emoji)}
+      colSize={this.state.colSize}
+    />
+  )
+
   returnSectionData() {
     const { 
       colSize,
@@ -291,35 +300,44 @@ export default class EmojiSelector extends Component {
     const {
       theme,
       columns,
+      placeholder,
       showHistory,
       showSearchBar,
       showSectionTitles,
       showTabs,
       ...other
     } = this.props;
+
+    const {
+      category,
+      colSize,
+      isReady,
+      searchQuery
+    } = this.state;
+
     const Searchbar = (
       <View style={styles.searchbar_container}>
         <TextInput
           style={styles.search}
-          placeholder={this.props.placeholder}
+          placeholder={placeholder}
           clearButtonMode='always'
           returnKeyType='done'
           autoCorrect={false}
-          underlineColorAndroid={this.props.theme}
-          value={this.state.searchQuery}
+          underlineColorAndroid={theme}
+          value={searchQuery}
           onChangeText={text => this.setState({ searchQuery: text })}
         />
       </View>
     );
 
-    const title = this.state.searchQuery !== '' ? 'Search Results' : this.state.category.name;
+    const title = searchQuery !== '' ? 'Search Results' : category.name;
 
     return (
       <View style={styles.frame} {...other}>
         <View style={styles.tabBar}>
           { showTabs && (
             <TabBar 
-              activeCategory={this.state.category}
+              activeCategory={category}
               onPress={this.handleTabSelect}
               theme={theme}
             />
@@ -327,22 +345,15 @@ export default class EmojiSelector extends Component {
         </View>
         <View style={{flex: 1}}>
           {showSearchBar && Searchbar}
-          {this.state.isReady ? (
+          {isReady ? (
             <View style={{flex: 1}}>
               <View style={styles.container}>
                 {showSectionTitles && <Text style={styles.sectionHeader}>{title}</Text>}
                 <FlatList
                   style={styles.scrollview}
-                  contentContainerStyle={{ paddingBottom: this.state.colSize }}
+                  contentContainerStyle={{ paddingBottom: colSize }}
                   data={this.returnSectionData()}
-                  renderItem={({item}) => (
-                    <EmojiCell 
-                      key={item.key}
-                      emoji={item.emoji}
-                      onPress={() => this.handleEmojiSelect(item.emoji)}
-                      colSize={this.state.colSize}
-                    />
-                  )}
+                  renderItem={this.renderEmojiCell}
                   horizontal={false}
                   numColumns={columns}
                   keyboardShouldPersistTaps={'always'}
@@ -353,7 +364,7 @@ export default class EmojiSelector extends Component {
             </View>
           ) : (
             <View style={styles.loader} {...other}>
-              <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? this.props.theme : '#000000'} />
+              <ActivityIndicator size={'large'} color={Platform.OS === 'android' ? theme : '#000000'} />
             </View>
           )}
         </View>
