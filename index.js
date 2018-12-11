@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
   TextInput, 
   Platform,
@@ -136,29 +135,6 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
   </TouchableOpacity>
 );
 
-const EmojiSection = ({ title, list, colSize, colCount, onLoadComplete, onEmojiSelected }) => (
-  <View style={styles.container}>
-    <Text style={styles.sectionHeader}>{title}</Text>
-    <FlatList
-      style={styles.scrollview}
-      contentContainerStyle={{ paddingBottom: colSize }}
-      data={list.map(emoji => ({ key: emoji.unified, emoji }))}
-      renderItem={({item}) => (
-        <EmojiCell 
-          key={item.key}
-          emoji={item.emoji}
-          onPress={() => onEmojiSelected(item.emoji)}
-          colSize={colSize}
-        />
-      )}
-      horizontal={false}
-      numColumns={colCount}
-      keyboardShouldPersistTaps={'always'}
-      removeClippedSubviews
-    />
-  </View>
-);
-
 const storage_key = '@react-native-emoji-selector:HISTORY';
 export default class EmojiSelector extends Component {
   state = {
@@ -180,7 +156,7 @@ export default class EmojiSelector extends Component {
       this.setState({ 
         searchQuery: '',
         category,
-      });       
+      });
     }
   }
   
@@ -196,28 +172,31 @@ export default class EmojiSelector extends Component {
   }
 
   addToHistoryAsync = async (e) => {
-    let result = await AsyncStorage.getItem(storage_key)
-    if (result) {
-      let value = [];
-      let json = JSON.parse(result);
+    let history = await AsyncStorage.getItem(storage_key);
 
-      if (json.filter(r => r.unified === e.unified).length > 0)  {
+    let value = [];
+    if (!history) {
+      // no history
+      let record = Object.assign({}, e, { count: 1 });
+      value.push(record);
+    } else {
+      let json = JSON.parse(history);
+      if (json.filter(r => r.unified === e.unified).length > 0) {
         value = json;
       } else {
-        const record = Object.assign({}, e, { count: 1 });
+        let record = Object.assign({}, e, { count: 1 });
         value = [record, ...json];
       }
-
-      AsyncStorage.setItem(storage_key, JSON.stringify(value));
-      this.setState({
-        history: value
-      });
     }
+
+    AsyncStorage.setItem(storage_key, JSON.stringify(value));
+    this.setState({
+      history: value
+    });
   }
 
   loadHistoryAsync = async () => {
     let result = await AsyncStorage.getItem(storage_key);
-
     if (result) {
       let history = JSON.parse(result);
       this.setState({ history });
@@ -238,7 +217,6 @@ export default class EmojiSelector extends Component {
 
   returnSectionData() {
     const { 
-      colSize,
       history,
       emojiList,
       searchQuery,
@@ -284,6 +262,7 @@ export default class EmojiSelector extends Component {
       let name = Categories[c].name;
       emojiList[name] = sortEmoji(emojiByCategory(name));
     });
+    console.log('Prerendered emojis');
     this.setState({ 
       emojiList, 
       colSize: Math.floor(width / this.props.columns)
