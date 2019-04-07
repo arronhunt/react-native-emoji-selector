@@ -84,7 +84,6 @@ const TabBar = ({ theme, activeCategory, onPress }) => {
           }}
         >
         <Text style={{
-          color: '#FFFFFF',
           textAlign: 'center',
           paddingBottom: 8,
           fontSize: (tabSize) - 24
@@ -241,7 +240,7 @@ export default class EmojiSelector extends Component {
       let name = Categories[c].name;
       emojiList[name] = sortEmoji(emojiByCategory(name));
     });
-    console.log('Prerendered emojis');
+
     this.setState({ 
       emojiList, 
       colSize: Math.floor(width / this.props.columns)
@@ -252,10 +251,10 @@ export default class EmojiSelector extends Component {
   //  LIFECYCLE METHODS
   //
   componentDidMount() {
-    const { category } = this.props;
+    const { category, showHistory } = this.props;
     this.setState({ category });
 
-    if (this.props.showHistory) {
+    if (showHistory) {
       this.loadHistoryAsync();
     }      
     
@@ -263,7 +262,7 @@ export default class EmojiSelector extends Component {
       this.setState({ isReady: true })
     });
   }
-    
+
   render() {
     const {
       theme,
