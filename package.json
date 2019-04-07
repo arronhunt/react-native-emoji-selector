@@ -10,8 +10,8 @@
   "author": "Arron Hunt",
   "license": "MIT",
   "dependencies": {
-    "emoji-datasource": "^4.0.3",
-    "prop-types": "^15.6.0",
+    "emoji-datasource": "^4.1.0",
+    "prop-types": "^15.7.2",
     "string.fromcodepoint": "^0.2.1"
   },
   "repository": {
