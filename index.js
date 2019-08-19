@@ -60,15 +60,17 @@ export const Categories = {
 
 const charFromUtf16 = utf16 => String.fromCodePoint(...utf16.split('-').map(u => '0x' + u));
 export const charFromEmojiObject = obj => charFromUtf16(obj.unified);
-const emojiByCategory = category => emoji.filter(e => e.category === category);
+const filteredEmojis = emoji.filter(e => !e['obsoleted_by'] );
+const emojiByCategory = category => filteredEmojis.filter(e => e.category === category);
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const { width } = Dimensions.get("screen");
 const categoryKeys = Object.keys(Categories);
 
 const TabBar = ({ theme, activeCategory, onPress }) => {
+  const tabSize = width / categoryKeys.length;
+
   return (
     categoryKeys.map(c => {
-      const tabSize = width / categoryKeys.length;
       const category = Categories[c];
       if (c !== 'all') return (
         <TouchableOpacity 

@@ -1,7 +1,8 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "cp ../index.js ./module.js && expo start",
+    "start": "dev && expo start",
+    "dev": "cp ../index.js ./module.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject"
