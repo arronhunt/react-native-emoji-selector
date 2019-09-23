@@ -50,3 +50,11 @@ The available categories are `all`, `people`, `nature`, `food`, `activities`, `p
 | showHistory     | _bool_   | `false`  | Toggle the history tab on or off                      |
 | category        | _enum_   | `.all`   | Set the default category. Use the `Categories` class  |
 | columns         | _number_ | `6`      | Number of columns accross                             |
+
+## Contributors
+
+Special thanks to everyone who has contributed to this project!
+
+- Victor K Varghese [@victorkvarghese](https://github.com/victorkvarghese) - 5eb2df3
+- Mateo Silguero [@mateosilguero](https://github.com/mateosilguero) - 8e8cef5
+- Anastasiia Kravchenko [@St1ma](https://github.com/St1ma)- 0113c53
