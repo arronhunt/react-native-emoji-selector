@@ -265,6 +265,10 @@ export default class EmojiSelector extends Component {
     });
   }
 
+  handleLayout = ({ nativeEvent: { layout: { width: layoutWidth } } }) => {
+    this.setState({ colSize: Math.floor(layoutWidth / this.props.columns) });
+  }
+
   render() {
     const {
       theme,
@@ -297,7 +301,7 @@ export default class EmojiSelector extends Component {
     const title = searchQuery !== "" ? "Search Results" : category.name;
 
     return (
-      <View style={styles.frame} {...other}>
+      <View style={styles.frame} {...other} onLayout={this.handleLayout}>
         <View style={styles.tabBar}>
           {showTabs && (
             <TabBar
