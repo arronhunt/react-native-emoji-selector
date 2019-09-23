@@ -26,7 +26,7 @@ import EmojiSelector from 'react-native-emoji-selector'
 
 ### Setting a default category
 
-If you'd like to define a different default category, you can import the `Categories` class.
+If you'd like to define a different default category, you can import the `Categories` class. Setting a default category can also improve performance by loading a single section rather than all sections at once.
 
 ```jsx
 import EmojiSelector, { Categories } from "react-native-emoji-selector";
@@ -50,8 +50,3 @@ The available categories are `all`, `people`, `nature`, `food`, `activities`, `p
 | showHistory     | _bool_   | `false`  | Toggle the history tab on or off                      |
 | category        | _enum_   | `.all`   | Set the default category. Use the `Categories` class  |
 | columns         | _number_ | `6`      | Number of columns accross                             |
-
-## To do
-
-- Improve performance of switching tabs
-- Show loaders when loading a category
