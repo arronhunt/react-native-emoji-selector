@@ -19,38 +19,42 @@ import EmojiSelector from 'react-native-emoji-selector'
 ## Usage
 
 ### Basic usage
+
 ```jsx
-<EmojiSelector
-    onEmojiSelected={emoji => console.log(emoji)}
-/>
+<EmojiSelector onEmojiSelected={emoji => console.log(emoji)} />
 ```
 
 ### Setting a default category
-If you'd like to define a different default category, you can import the `Categories` class.
+
+If you'd like to define a different default category, you can import the `Categories` class. Setting a default category can also improve performance by loading a single section rather than all sections at once.
 
 ```jsx
-import EmojiSelector, { Categories } from 'react-native-emoji-selector';
+import EmojiSelector, { Categories } from "react-native-emoji-selector";
 
 <EmojiSelector
-    category={Categories.symbols}
-    onEmojiSelected={emoji => console.log(emoji)}
-/>
+  category={Categories.symbols}
+  onEmojiSelected={emoji => console.log(emoji)}
+/>;
 ```
 
-The available categories are `all`, `people`, `nature`, `food`, `activities`, `places`, `objects`, `symbols`, and `flags`. 
+The available categories are `all`, `people`, `nature`, `food`, `activities`, `places`, `objects`, `symbols`, and `flags`.
 
 ## Props
 
-|Prop|Type|Default|Description|
-|---|---|---|---|
-|onEmojiSelected|*func*| |Function called when a user selects an Emoji|
-|theme|*string*|`007AFF`|Theme color used for loaders and active tab indicator|
-|showTabs|*bool*|`true`|Toggle the tabs on or off|
-|showSearchBar|*bool*|`true`|Toggle the searchbar on or off|
-|showHistory|*bool*|`false`|Toggle the history tab on or off|
-|category|*enum*|`.all`|Set the default category. Use the `Categories` class|
-|columns|*number*|`6`|Number of columns accross|
+| Prop            | Type     | Default  | Description                                           |
+| --------------- | -------- | -------- | ----------------------------------------------------- |
+| onEmojiSelected | _func_   |          | Function called when a user selects an Emoji          |
+| theme           | _string_ | `007AFF` | Theme color used for loaders and active tab indicator |
+| showTabs        | _bool_   | `true`   | Toggle the tabs on or off                             |
+| showSearchBar   | _bool_   | `true`   | Toggle the searchbar on or off                        |
+| showHistory     | _bool_   | `false`  | Toggle the history tab on or off                      |
+| category        | _enum_   | `.all`   | Set the default category. Use the `Categories` class  |
+| columns         | _number_ | `6`      | Number of columns accross                             |
 
-## To do
-* Improve performance of switching tabs
-* Show loaders when loading a category
+## Contributors
+
+Special thanks to everyone who has contributed to this project!
+
+- Victor K Varghese [@victorkvarghese](https://github.com/victorkvarghese) - 5eb2df3
+- Mateo Silguero [@mateosilguero](https://github.com/mateosilguero) - 8e8cef5
+- Anastasiia Kravchenko [@St1ma](https://github.com/St1ma)- 0113c53

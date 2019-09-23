@@ -1,4 +1,4 @@
-declare module 'react-native-emoji-selector' {
+declare module "react-native-emoji-selector" {
   export enum EmojiCategory {
     All = ".all",
     History = ".history",
@@ -9,15 +9,15 @@ declare module 'react-native-emoji-selector' {
     Places = ".places",
     Objects = ".objects",
     Symbols = ".symbols",
-    Flags = ".flags",
+    Flags = ".flags"
   }
   export interface EmojiSelectorProps {
-    onEmojiSelected(emoji: string): void,
-    theme?: string,
-    showTabs?: boolean,
-    showSearchBar?: boolean,
-    showHistory?: boolean,
-    category?: EmojiCategory,
-    columns?: number
+    onEmojiSelected(emoji: string): void;
+    theme?: string;
+    showTabs?: boolean;
+    showSearchBar?: boolean;
+    showHistory?: boolean;
+    category?: EmojiCategory;
+    columns?: number;
   }
 }
