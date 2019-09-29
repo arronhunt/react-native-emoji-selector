@@ -19,5 +19,6 @@ declare module "react-native-emoji-selector" {
     showHistory?: boolean;
     category?: EmojiCategory;
     columns?: number;
+    placeholder?: string;
   }
 }
