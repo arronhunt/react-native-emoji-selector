@@ -41,15 +41,16 @@ The available categories are `all`, `people`, `nature`, `food`, `activities`, `p
 
 ## Props
 
-| Prop            | Type     | Default  | Description                                           |
-| --------------- | -------- | -------- | ----------------------------------------------------- |
-| onEmojiSelected | _func_   |          | Function called when a user selects an Emoji          |
-| theme           | _string_ | `007AFF` | Theme color used for loaders and active tab indicator |
-| showTabs        | _bool_   | `true`   | Toggle the tabs on or off                             |
-| showSearchBar   | _bool_   | `true`   | Toggle the searchbar on or off                        |
-| showHistory     | _bool_   | `false`  | Toggle the history tab on or off                      |
-| category        | _enum_   | `.all`   | Set the default category. Use the `Categories` class  |
-| columns         | _number_ | `6`      | Number of columns accross                             |
+| Prop            | Type     | Default     | Description                                              |
+| --------------- | -------- | ----------- | -------------------------------------------------------- |
+| onEmojiSelected | _func_   |             | Function called when a user selects an Emoji             |
+| theme           | _string_ | `007AFF`    | Theme color used for loaders and active tab indicator    |
+| showTabs        | _bool_   | `true`      | Toggle the tabs on or off                                |
+| showSearchBar   | _bool_   | `true`      | Toggle the searchbar on or off                           |
+| showHistory     | _bool_   | `false`     | Toggle the history tab on or off                         |
+| category        | _enum_   | `.all`      | Set the default category. Use the `Categories` class     |
+| columns         | _number_ | `6`         | Number of columns accross                                |
+| placeholder     | _string_ | `Search...` | A string placeholder when there is no text in text input |
 
 ## Contributors
 
