@@ -402,7 +402,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   searchbar_container: {
-    width: "100%",
     zIndex: 1,
     backgroundColor: "rgba(255,255,255,0.75)"
   },
@@ -419,13 +418,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexWrap: "wrap",
-    flexDirection: "row"
   },
   sectionHeader: {
     margin: 8,
     fontSize: 17,
-    width: "100%",
     color: "#8F8F8F"
   }
 });
