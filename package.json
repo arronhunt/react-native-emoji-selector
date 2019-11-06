@@ -3,6 +3,7 @@
   "version": "0.1.7",
   "description": "A react native emoji selector",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "prettify": "prettier --write './**/*.js'"
   },
