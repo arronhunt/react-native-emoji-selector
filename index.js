@@ -420,7 +420,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexWrap: "wrap",
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems: "flex-start"
   },
   sectionHeader: {
     margin: 8,
