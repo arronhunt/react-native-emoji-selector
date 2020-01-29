@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   TextInput,
   Platform,
-  Dimensions,
   ActivityIndicator,
   AsyncStorage,
   FlatList
@@ -65,10 +64,9 @@ const filteredEmojis = emoji.filter(e => !e["obsoleted_by"]);
 const emojiByCategory = category =>
   filteredEmojis.filter(e => e.category === category);
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
-const { width } = Dimensions.get("screen");
 const categoryKeys = Object.keys(Categories);
 
-const TabBar = ({ theme, activeCategory, onPress }) => {
+const TabBar = ({ theme, activeCategory, onPress, width }) => {
   const tabSize = width / categoryKeys.length;
 
   return categoryKeys.map(c => {
@@ -126,7 +124,8 @@ export default class EmojiSelector extends Component {
     isReady: false,
     history: [],
     emojiList: null,
-    colSize: 0
+    colSize: 0,
+    width: 0
   };
 
   //
@@ -243,11 +242,19 @@ export default class EmojiSelector extends Component {
     this.setState(
       {
         emojiList,
-        colSize: Math.floor(width / this.props.columns)
+        colSize: Math.floor(this.state.width / this.props.columns)
       },
       cb
     );
   }
+
+  handleLayout = ({ nativeEvent: { layout } }) => {
+    this.setState({ width: layout.width }, () => {
+      this.prerenderEmojis(() => {
+        this.setState({ isReady: true });
+      });
+    })
+  };
 
   //
   //  LIFECYCLE METHODS
@@ -259,14 +266,6 @@ export default class EmojiSelector extends Component {
     if (showHistory) {
       this.loadHistoryAsync();
     }
-
-    this.prerenderEmojis(() => {
-      this.setState({ isReady: true });
-    });
-  }
-
-  handleLayout = ({ nativeEvent: { layout: { width: layoutWidth } } }) => {
-    this.setState({ colSize: Math.floor(layoutWidth / this.props.columns) });
   }
 
   render() {
@@ -308,6 +307,7 @@ export default class EmojiSelector extends Component {
               activeCategory={category}
               onPress={this.handleTabSelect}
               theme={theme}
+              width={this.state.width}
             />
           )}
         </View>
