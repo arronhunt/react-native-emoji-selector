@@ -23,9 +23,13 @@ export const Categories = {
     symbol: "🕘",
     name: "Recently used"
   },
+  emotion: {
+    symbol: "😀",
+    name: "Smileys & Emotion"
+  },
   people: {
-    symbol: "😊",
-    name: "Smileys & People"
+    symbol: "🧑",
+    name: "People & Body"
   },
   nature: {
     symbol: "🦄",
@@ -214,6 +218,7 @@ export default class EmojiSelector extends Component {
       let list;
       const hasSearchQuery = searchQuery !== "";
       const name = category.name;
+      console.log("CATEGORY NAME", name);
       if (hasSearchQuery) {
         const filtered = emoji.filter(e => {
           let display = false;
