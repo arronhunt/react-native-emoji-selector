@@ -1,6 +1,6 @@
 {
   "name": "react-native-emoji-selector",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A react native emoji selector",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arronhunt/react-native-emoji-selector.git"
+    "url": "git+https://github.com/lucasfeijo/react-native-emoji-selector.git"
   }
 }
