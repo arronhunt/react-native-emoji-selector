@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   View,
   Text,
@@ -350,34 +349,6 @@ export default class EmojiSelector extends Component {
   }
 }
 
-EmojiSelector.propTypes = {
-  /** Function called when a user selects an Emoji */
-  onEmojiSelected: PropTypes.func.isRequired,
-
-  /** Theme color used for loaders and active tab indicator */
-  theme: PropTypes.string,
-
-  /** Placeholder of search input */
-  placeholder: PropTypes.string,
-
-  /** Toggle the tabs on or off */
-  showTabs: PropTypes.bool,
-
-  /** Toggle the searchbar on or off */
-  showSearchBar: PropTypes.bool,
-
-  /** Toggle the history section on or off */
-  showHistory: PropTypes.bool,
-
-  /** Toggle section title on or off */
-  showSectionTitles: PropTypes.bool,
-
-  /** Set the default category. Use the `Categories` class */
-  category: PropTypes.object,
-
-  /** Number of columns accross */
-  columns: PropTypes.number
-};
 EmojiSelector.defaultProps = {
   theme: "#007AFF",
   category: Categories.all,

@@ -15,7 +15,6 @@
   "license": "MIT",
   "dependencies": {
     "emoji-datasource": "^5.0.1",
-    "prop-types": "^15.7.2",
     "string.fromcodepoint": "^0.2.1"
   },
   "repository": {
