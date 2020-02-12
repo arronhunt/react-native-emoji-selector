@@ -23,9 +23,13 @@ export const Categories = {
     symbol: "🕘",
     name: "Recently used"
   },
+  emotion: {
+    symbol: "😀",
+    name: "Smileys & Emotion"
+  },
   people: {
-    symbol: "😊",
-    name: "Smileys & People"
+    symbol: "🧑",
+    name: "People & Body"
   },
   nature: {
     symbol: "🦄",
