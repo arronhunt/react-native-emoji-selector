@@ -14,8 +14,7 @@
   "author": "Arron Hunt",
   "license": "MIT",
   "dependencies": {
-    "emoji-datasource": "^5.0.1",
-    "string.fromcodepoint": "^0.2.1"
+    "emoji-datasource": "^5.0.1"
   },
   "repository": {
     "type": "git",

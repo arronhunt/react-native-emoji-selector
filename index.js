@@ -11,7 +11,6 @@ import {
   FlatList
 } from "react-native";
 import emoji from "emoji-datasource";
-import "string.fromcodepoint";
 
 export const Categories = {
   all: {
