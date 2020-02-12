@@ -153,20 +153,20 @@ export default class EmojiSelector extends Component {
     this.setState({ searchQuery });
   };
 
-  addToHistoryAsync = async e => {
+  addToHistoryAsync = async emoji => {
     let history = await AsyncStorage.getItem(storage_key);
 
     let value = [];
     if (!history) {
       // no history
-      let record = Object.assign({}, e, { count: 1 });
+      let record = Object.assign({}, emoji, { count: 1 });
       value.push(record);
     } else {
       let json = JSON.parse(history);
-      if (json.filter(r => r.unified === e.unified).length > 0) {
+      if (json.filter(r => r.unified === emoji.unified).length > 0) {
         value = json;
       } else {
-        let record = Object.assign({}, e, { count: 1 });
+        let record = Object.assign({}, emoji, { count: 1 });
         value = [record, ...json];
       }
     }
@@ -232,7 +232,7 @@ export default class EmojiSelector extends Component {
     }
   }
 
-  prerenderEmojis(cb) {
+  prerenderEmojis(callback) {
     let emojiList = {};
     categoryKeys.forEach(c => {
       let name = Categories[c].name;
@@ -244,7 +244,7 @@ export default class EmojiSelector extends Component {
         emojiList,
         colSize: Math.floor(this.state.width / this.props.columns)
       },
-      cb
+      callback
     );
   }
 
@@ -253,7 +253,7 @@ export default class EmojiSelector extends Component {
       this.prerenderEmojis(() => {
         this.setState({ isReady: true });
       });
-    })
+    });
   };
 
   //
