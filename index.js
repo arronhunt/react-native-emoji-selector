@@ -8,9 +8,9 @@ import {
   TextInput,
   Platform,
   ActivityIndicator,
-  AsyncStorage,
   FlatList
 } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage'
 import emoji from "emoji-datasource";
 import "string.fromcodepoint";
 
