@@ -52,6 +52,7 @@ The available categories are `all`, `emotion`, `people`, `nature`, `food`, `acti
 | category          | _enum_   | `"all"`       | Set the default category. Use the `Categories` class     |
 | columns           | _number_ | `6`           | Number of columns accross                                |
 | placeholder       | _string_ | `"Search..."` | A string placeholder when there is no text in text input |
+| shouldInclude     | _func_   |               | Function called to check for emoji inclusion             |
 
 ## Contributors
 
