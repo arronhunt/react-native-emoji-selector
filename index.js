@@ -201,37 +201,40 @@ export default class EmojiSelector extends Component {
 
   returnSectionData() {
     const { history, emojiList, searchQuery, category } = this.state;
-    if (category === Categories.all && searchQuery === "") {
-      //TODO: OPTIMIZE THIS
-      let largeList = [];
-      categoryKeys.forEach(c => {
-        const name = Categories[c].name;
-        const list =
-          name === Categories.history.name ? history : emojiList[name];
-        if (c !== "all" && c !== "history") largeList = largeList.concat(list);
-      });
-
-      return largeList.map(emoji => ({ key: emoji.unified, emoji }));
-    } else {
-      let list;
-      const hasSearchQuery = searchQuery !== "";
-      const name = category.name;
-      if (hasSearchQuery) {
-        const filtered = emoji.filter(e => {
-          let display = false;
-          e.short_names.forEach(name => {
-            if (name.includes(searchQuery.toLowerCase())) display = true;
-          });
-          return display;
+    let emojiData = (function() {
+        if (category === Categories.all && searchQuery === "") {
+        //TODO: OPTIMIZE THIS
+        let largeList = [];
+        categoryKeys.forEach(c => {
+          const name = Categories[c].name;
+          const list =
+            name === Categories.history.name ? history : emojiList[name];
+          if (c !== "all" && c !== "history") largeList = largeList.concat(list);
         });
-        list = sortEmoji(filtered);
-      } else if (name === Categories.history.name) {
-        list = history;
+
+        return largeList.map(emoji => ({ key: emoji.unified, emoji }));
       } else {
-        list = emojiList[name];
+        let list;
+        const hasSearchQuery = searchQuery !== "";
+        const name = category.name;
+        if (hasSearchQuery) {
+          const filtered = emoji.filter(e => {
+            let display = false;
+            e.short_names.forEach(name => {
+              if (name.includes(searchQuery.toLowerCase())) display = true;
+            });
+            return display;
+          });
+          list = sortEmoji(filtered);
+        } else if (name === Categories.history.name) {
+          list = history;
+        } else {
+          list = emojiList[name];
+        }
+        return list.map(emoji => ({ key: emoji.unified, emoji }));
       }
-      return list.map(emoji => ({ key: emoji.unified, emoji }));
-    }
+    })()
+    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData
   }
 
   prerenderEmojis(callback) {
