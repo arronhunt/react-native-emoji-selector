@@ -145,9 +145,24 @@ export default class EmojiSelector extends Component {
     width: 0,
   };
 
-  //
-  //  HANDLER METHODS
-  //
+  constructor(props) {
+    super(props);
+    const { showHistory, category } = props;
+    showHistory &&
+      this.loadHistoryAsync().then((history) => {
+        const finalCategory =
+          history.length > 0 ? Categories.history : category;
+        this.setState({
+          searchQuery: "",
+          category: finalCategory,
+          isReady: false,
+          history,
+          colSize: 0,
+          width: 0,
+        });
+      });
+  }
+
   handleTabSelect = (category) => {
     if (this.state.isReady) {
       if (this.scrollview)
@@ -195,16 +210,13 @@ export default class EmojiSelector extends Component {
   };
 
   loadHistoryAsync = async () => {
-    let result = await AsyncStorage.getItem(storage_key);
+    const result = await AsyncStorage.getItem(storage_key);
     if (result) {
-      let history = JSON.parse(result);
-      this.setState({ history });
+      return JSON.parse(result);
     }
+    return [];
   };
 
-  //
-  //  RENDER METHODS
-  //
   renderEmojiCell = ({ item, index }) => (
     <EmojiCell
       key={index}
@@ -265,17 +277,10 @@ export default class EmojiSelector extends Component {
   //  LIFECYCLE METHODS
   //
   componentDidMount() {
-    const { category, showHistory } = this.props;
-    this.setState({ category });
-
     categoryKeys.forEach((c) => {
       let name = Categories[c].name;
       this.emojiList[name] = sortEmoji(emojiByCategory(name));
     });
-
-    if (showHistory) {
-      this.loadHistoryAsync();
-    }
   }
 
   handleEmojiContainerSwipe = (gestureName) => {
