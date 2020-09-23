@@ -9,7 +9,6 @@ declare module "react-native-emoji-selector" {
    * same because the export is named the same.
    */
   export enum Categories {
-    all = "all",
     history = "history",
     emotion = "emotion",
     people = "people",
@@ -19,7 +18,7 @@ declare module "react-native-emoji-selector" {
     places = "places",
     objects = "objects",
     symbols = "symbols",
-    flag = "flag"
+    flag = "flag",
   }
 
   export interface EmojiSelectorProps {
@@ -32,7 +31,10 @@ declare module "react-native-emoji-selector" {
     showSectionTitles?: boolean;
     category?: Categories;
     columns?: number;
-    shouldInclude?: (e: any)=>boolean;
+    shouldInclude?: (e: any) => boolean;
+    emojiSize?: number;
+    categoryEmojiSize?: number;
+    renderActionContainer: () => React.ReactNode | JSX.Element;
   }
 
   const EmojiSelector: React.ComponentType<EmojiSelectorProps>;
