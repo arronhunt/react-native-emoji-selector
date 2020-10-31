@@ -23,59 +23,57 @@ export const Categories = {
     name: "Recently used",
     key: "history",
   },
-  emotion: {
+  emotions: {
     symbol: "😀",
-    name: "Smileys & Emotion",
+    name: "emotions",
     key: "emotion",
   },
+  gestures: {
+    symbol: "👋🏼",
+    name: "gestures",
+    key: "gestures",
+  },
+  love: {
+    symbol: "🧡",
+    name: "love",
+    key: "love",
+  },
   people: {
-    symbol: "🧑",
-    name: "People & Body",
+    symbol: "👨🏻",
+    name: "people",
     key: "people",
   },
-  nature: {
-    symbol: "🦄",
-    name: "Animals & Nature",
-    key: "nature",
+  animalsPlacesAndFood: {
+    symbol: "🐶",
+    name: "animalsPlacesAndFood",
+    key: "animalsPlacesAndFood",
   },
-  food: {
-    symbol: "🍔",
-    name: "Food & Drink",
-    key: "food",
-  },
-  activities: {
-    symbol: "⚾️",
-    name: "Activities",
-    key: "activities",
-  },
-  places: {
-    symbol: "✈️",
-    name: "Travel & Places",
-    key: "places",
-  },
-  objects: {
-    symbol: "💡",
-    name: "Objects",
-    key: "objects",
-  },
-  symbols: {
-    symbol: "🔣",
-    name: "Symbols",
-    key: "symbols",
-  },
-  flags: {
-    symbol: "🏳️‍🌈",
-    name: "Flags",
-    key: "flags",
+  extra: {
+    symbol: "✨",
+    name: "extra",
+    key: "extra",
   },
 };
 
 const storage_key = "@react-native-emoji-selector:HISTORY";
 
-const filteredEmojis = emoji.filter((e) => !e["obsoleted_by"]);
-const emojiByCategory = (category) =>
-  filteredEmojis.filter((e) => e.category === category);
-const sortEmoji = (list) => list.sort((a, b) => a.sort_order - b.sort_order);
+const emojiByCategory = (category) => {
+  switch (category) {
+    case "emotions":
+      return emoji.slice(0, 103);
+    case "gestures":
+      return emoji.slice(103, 137);
+    case "love":
+      return emoji.slice(137, 161);
+    case "people":
+      return emoji.slice(161, 192);
+    case "animalsPlacesAndFood":
+      return emoji.slice(192, 252);
+    case "extra":
+      return emoji.slice(252);
+  }
+};
+
 const categoryKeys = Object.keys(Categories);
 
 const TabBar = ({
@@ -100,15 +98,13 @@ const TabBar = ({
           borderBottomWidth: 2,
           alignItems: "center",
           justifyContent: "center",
-        }}
-      >
+        }}>
         <Text
           style={{
             textAlign: "center",
             paddingBottom: 8,
             fontSize: categoryEmojiSize || tabSize - 24,
-          }}
-        >
+          }}>
           {category.symbol}
         </Text>
       </TouchableOpacity>
@@ -125,8 +121,7 @@ const EmojiCell = ({ emoji, colSize, emojiSize, ...other }) => (
       alignItems: "center",
       justifyContent: "center",
     }}
-    {...other}
-  >
+    {...other}>
     <Text style={{ color: "#FFFFFF", fontSize: emojiSize || colSize - 12 }}>
       {emoji.unified}
     </Text>
@@ -138,7 +133,7 @@ export default class EmojiSelector extends Component {
 
   state = {
     searchQuery: "",
-    category: Categories.people,
+    category: Categories.emotions,
     isReady: false,
     history: [],
     colSize: 0,
@@ -242,7 +237,7 @@ export default class EmojiSelector extends Component {
           });
           return display;
         });
-        list = sortEmoji(filtered);
+        list = filtered;
       } else if (name === Categories.history.name) {
         list = history;
       } else {
@@ -279,7 +274,7 @@ export default class EmojiSelector extends Component {
   componentDidMount() {
     categoryKeys.forEach((c) => {
       let name = Categories[c].name;
-      this.emojiList[name] = sortEmoji(emojiByCategory(name));
+      this.emojiList[name] = emojiByCategory(name);
     });
   }
 
@@ -362,8 +357,7 @@ export default class EmojiSelector extends Component {
           config={{
             velocityThreshold: 0.2,
             gestureIsClickThreshold: 3,
-          }}
-        >
+          }}>
           <View style={styles.frame} {...other} onLayout={this.handleLayout}>
             <View style={{ flex: 1 }}>
               <View style={styles.tabBar}>
