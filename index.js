@@ -109,7 +109,7 @@ const EmojiCell = ({ emoji, colSize, ...other }) => {
       width: colSize,
       height: colSize,
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
     }}
     {...other}
   >
@@ -236,7 +236,7 @@ export default class EmojiSelector extends Component {
         return list.map(emoji => ({ key: emoji.unified, emoji }));
       }
     })()
-    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData
+    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData.filter(e => !this.props.selectedEmoji.has(e.emoji.unified))
   }
 
   prerenderEmojis(callback) {
@@ -361,6 +361,7 @@ EmojiSelector.defaultProps = {
   showHistory: false,
   showSectionTitles: true,
   columns: 6,
+  selectedEmoji : new Map(),
   placeholder: "Search..."
 };
 
