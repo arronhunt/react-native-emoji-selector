@@ -10,7 +10,8 @@ import {
   AsyncStorage,
   FlatList
 } from "react-native";
-import emoji from "emoji-datasource";
+
+const emoji = require("./emoji.json");
 
 export const Categories = {
   all: {
@@ -101,8 +102,8 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
   });
 };
 
-const EmojiCell = ({ emoji, colSize, ...other }) => (
-  <TouchableOpacity
+const EmojiCell = ({ emoji, colSize, ...other }) => {
+  return <TouchableOpacity
     activeOpacity={0.5}
     style={{
       width: colSize,
@@ -116,7 +117,7 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
       {charFromEmojiObject(emoji)}
     </Text>
   </TouchableOpacity>
-);
+};
 
 const storage_key = "@react-native-emoji-selector:HISTORY";
 export default class EmojiSelector extends Component {
@@ -148,7 +149,8 @@ export default class EmojiSelector extends Component {
     if (this.props.showHistory) {
       this.addToHistoryAsync(emoji);
     }
-    this.props.onEmojiSelected(charFromEmojiObject(emoji));
+    // this.props.onEmojiSelected(charFromEmojiObject(emoji));
+    this.props.onEmojiSelected((emoji.unified));
   };
 
   handleSearch = searchQuery => {
