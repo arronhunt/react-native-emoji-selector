@@ -16750,18 +16750,6 @@
     "sort_order": 55
   },
   {
-    "name": "NINJA",
-    "unified": "1F977",
-    "short_name": "ninja",
-    "short_names": [
-      "ninja"
-    ],
-    "text": null,
-    "texts": null,
-    "category": "People & Body",
-    "sort_order": 165
-  },
-  {
     "name": "FACE WITH PLEADING EYES",
     "unified": "1F97A",
     "short_name": "pleading_face",
