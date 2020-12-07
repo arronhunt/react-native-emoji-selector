@@ -7,56 +7,68 @@ import {
   TextInput,
   Platform,
   ActivityIndicator,
-  AsyncStorage,
-  FlatList
+  FlatList,
+  Image
 } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
 export const Categories = {
   all: {
-    symbol: null,
-    name: "All"
+    name: "All",
+    icon : null
   },
   history: {
-    symbol: "🕘",
-    name: "Recently used"
+    name: "Recently used",
+    icon : require("./assets/Recent_Gray.png"),
+    unSelectedIcon : require("./assets/Recent_Gray_Light.png"),
   },
   emotion: {
-    symbol: "😀",
-    name: "Smileys & Emotion"
+    name: "Smileys & Emotion",
+    icon : require("./assets/Smileys_People_Gray.png"),
+    unSelectedIcon : require("./assets/Smileys_People_Gray_Light.png"),
   },
   people: {
     symbol: "🧑",
-    name: "People & Body"
+    name: "People & Body",
+    icon : require("./assets/Smileys_People_Gray.png"),
+    unSelectedIcon : require("./assets/Smileys_People_Gray_Light.png"),
   },
   nature: {
-    symbol: "🦄",
-    name: "Animals & Nature"
+    name: "Animals & Nature",
+    icon : require("./assets/Animals_Nature_Gray.png"),
+    unSelectedIcon : require("./assets/Animals_Nature_Gray_Light.png"),
   },
   food: {
-    symbol: "🍔",
-    name: "Food & Drink"
+    name: "Food & Drink",
+    icon : require("./assets/Food_Drink_Gray.png"),
+    unSelectedIcon : require("./assets/Food_Drink_Gray_Light.png"),
   },
   activities: {
-    symbol: "⚾️",
-    name: "Activities"
+    name: "Activities",
+    icon : require("./assets/Activity_Gray.png"),
+    unSelectedIcon : require("./assets/Activity_Gray_Light.png"),
   },
   places: {
-    symbol: "✈️",
-    name: "Travel & Places"
+    name: "Travel & Places",
+    icon : require("./assets/Travel_Places_Gray.png"),
+    unSelectedIcon : require("./assets/Travel_Places_Gray_Light.png"),
   },
   objects: {
-    symbol: "💡",
-    name: "Objects"
+    name: "Objects",
+    icon : require("./assets/Objects_Gray.png"),
+    unSelectedIcon : require("./assets/Objects_Gray_Light.png"),
   },
   symbols: {
-    symbol: "🔣",
-    name: "Symbols"
+    name: "Symbols",
+    icon : require("./assets/Symbols_Gray.png"),
+    unSelectedIcon : require("./assets/Symbols_Gray_Light.png"),
   },
   flags: {
-    symbol: "🏳️‍🌈",
-    name: "Flags"
+    name: "Flags",
+    icon : require("./assets/Flags_Gray.png"),
+    unSelectedIcon : require("./assets/Flags_Gray_Light.png"),
   }
 };
 
@@ -71,7 +83,7 @@ const categoryKeys = Object.keys(Categories);
 
 const TabBar = ({ theme, activeCategory, onPress, width }) => {
   const tabSize = width / categoryKeys.length;
-
+  
   return categoryKeys.map(c => {
     const category = Categories[c];
     if (c !== "all")
@@ -87,16 +99,14 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
             alignItems: "center",
             justifyContent: "center"
           }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              paddingBottom: 8,
-              fontSize: tabSize - 24
-            }}
-          >
-            {category.symbol}
-          </Text>
+        > 
+        <Image 
+          source={category === activeCategory ? category.icon : category.unSelectedIcon}
+          style={{
+            height : 20,
+            width : 20
+          }}
+          /> 
         </TouchableOpacity>
       );
   });
