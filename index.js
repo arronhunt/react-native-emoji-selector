@@ -397,15 +397,15 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.75)"
   },
   search: {
-    ...Platform.select({
+   ...Platform.select({
       ios: {
-        height: 36,
         paddingLeft: 8,
-        borderRadius: 10,
-        backgroundColor: "#E5E8E9"
       }
     }),
-    margin: 8
+    margin: 8,
+    height: 30,
+    borderRadius: 4,
+    backgroundColor: "#F2F2F2"
   },
   container: {
     flex: 1,
