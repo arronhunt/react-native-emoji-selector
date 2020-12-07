@@ -14,6 +14,68 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
+const favouriteEmojis = [
+  {
+    "name": "THUMBS UP SIGN",
+    "unified": "1F44D",
+    "short_name": "+1",
+    "short_names": ["+1", "thumbsup"],
+    "text": null,
+    "texts": null,
+    "category": "People & Body",
+    "sort_order": 20
+  },
+  {
+    "name": "THUMBS DOWN SIGN",
+    "unified": "1F44E",
+    "short_name": "-1",
+    "short_names": [
+      "-1",
+      "thumbsdown"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "People & Body",
+    "sort_order": 21
+  }, 
+  {
+    "name": "WHITE MEDIUM STAR",
+    "unified": "2B50",
+    "short_name": "star",
+    "short_names": [
+      "star"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Travel & Places",
+    "sort_order": 186
+  },
+  {
+    "name": "BLACK HEART SUIT",
+    "unified": "2665-FE0F",
+    "short_name": "hearts",
+    "short_names": [
+      "hearts"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Activities",
+    "sort_order": 71
+  },
+  {
+    "name": "WARNING SIGN",
+    "unified": "26A0-FE0F",
+    "short_name": "warning",
+    "short_names": [
+      "warning"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Symbols",
+    "sort_order": 14
+  }
+]
+
 export const Categories = {
   all: {
     name: "All",
@@ -26,12 +88,6 @@ export const Categories = {
   },
   emotion: {
     name: "Smileys & Emotion",
-    icon : require("./assets/Smileys_People_Gray.png"),
-    unSelectedIcon : require("./assets/Smileys_People_Gray_Light.png"),
-  },
-  people: {
-    symbol: "🧑",
-    name: "People & Body",
     icon : require("./assets/Smileys_People_Gray.png"),
     unSelectedIcon : require("./assets/Smileys_People_Gray_Light.png"),
   },
@@ -83,7 +139,6 @@ const categoryKeys = Object.keys(Categories);
 
 const TabBar = ({ theme, activeCategory, onPress, width }) => {
   const tabSize = width / categoryKeys.length;
-  
   return categoryKeys.map(c => {
     const category = Categories[c];
     if (c !== "all")
@@ -133,7 +188,7 @@ const storage_key = "@react-native-emoji-selector:HISTORY";
 export default class EmojiSelector extends Component {
   state = {
     searchQuery: "",
-    category: Categories.people,
+    category: Categories.history,
     isReady: false,
     history: [],
     emojiList: null,
@@ -156,12 +211,31 @@ export default class EmojiSelector extends Component {
   };
 
   handleEmojiSelect = emoji => {
-    if (this.props.showHistory) {
+    const { category } = this.state;
+    if (category.name !== 'history') {
       this.addToHistoryAsync(emoji);
     }
-    // this.props.onEmojiSelected(charFromEmojiObject(emoji));
     this.props.onEmojiSelected((emoji.unified));
   };
+
+  uniqueEmojisOnly = (emojis) => {
+    let uniqueEmojis = [];
+    for(let i = 0; i<emojis.length; i++) {
+      let isDuplicate = false;
+      for(let j = i+1; j<emojis.length; j++) {
+        if(emojis[i].unified === emojis[j].unified) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      if(!isDuplicate) {
+        uniqueEmojis.push(emojis[i]);
+      }
+    }
+
+    return uniqueEmojis;
+  }
 
   handleSearch = searchQuery => {
     this.setState({ searchQuery });
@@ -169,7 +243,6 @@ export default class EmojiSelector extends Component {
 
   addToHistoryAsync = async emoji => {
     let history = await AsyncStorage.getItem(storage_key);
-
     let value = [];
     if (!history) {
       // no history
@@ -186,16 +259,16 @@ export default class EmojiSelector extends Component {
     }
 
     AsyncStorage.setItem(storage_key, JSON.stringify(value));
+    const uniqueEmojis = this.uniqueEmojisOnly( [...favouriteEmojis, ...value])
     this.setState({
-      history: value
+      history: uniqueEmojis
     });
   };
 
   loadHistoryAsync = async () => {
     let result = await AsyncStorage.getItem(storage_key);
     if (result) {
-      let history = JSON.parse(result);
-      this.setState({ history });
+      return JSON.parse(result);
     }
   };
 
@@ -246,7 +319,7 @@ export default class EmojiSelector extends Component {
         return list.map(emoji => ({ key: emoji.unified, emoji }));
       }
     })()
-    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData.filter(e => !this.props.selectedEmoji.has(e.emoji.unified))
+    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData;
   }
 
   prerenderEmojis(callback) {
@@ -276,13 +349,14 @@ export default class EmojiSelector extends Component {
   //
   //  LIFECYCLE METHODS
   //
-  componentDidMount() {
-    const { category, showHistory } = this.props;
-    this.setState({ category });
-
-    if (showHistory) {
-      this.loadHistoryAsync();
+  async componentDidMount() {
+    let history = favouriteEmojis;
+    let recentlyUsed = await this.loadHistoryAsync();
+    if(recentlyUsed) {
+      history = [...history, ...recentlyUsed];
     }
+    history =  this.uniqueEmojisOnly(history);
+    this.setState({ history });
   }
 
   render() {
@@ -371,7 +445,6 @@ EmojiSelector.defaultProps = {
   showHistory: false,
   showSectionTitles: true,
   columns: 6,
-  selectedEmoji : new Map(),
   placeholder: "Search..."
 };
 
@@ -399,13 +472,13 @@ const styles = StyleSheet.create({
   search: {
     ...Platform.select({
       ios: {
-        height: 36,
         paddingLeft: 8,
-        borderRadius: 10,
-        backgroundColor: "#E5E8E9"
       }
     }),
-    margin: 8
+    margin: 8,
+    height: 30,
+    borderRadius: 4,
+    backgroundColor: "#F2F2F2"
   },
   container: {
     flex: 1,
