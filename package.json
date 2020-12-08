@@ -16,6 +16,9 @@
   "peerDependencies": {
     "@react-native-community/async-storage": "1.6.2"
   },
+  "files": [
+    "assets"
+   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GSynergy/react-native-emoji-selector.git"
