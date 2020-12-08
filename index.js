@@ -388,7 +388,7 @@ export default class EmojiSelector extends Component {
       </View>
     );
 
-    const title = searchQuery !== "" ? "Search Results" : category.name;
+    const title = searchQuery !== "" ? "Search Results" : category.name === "Smileys & Emotion" ? "Smileys, Emotion & Gestures" : category.name;
 
     return (
       <View style={styles.frame} {...other} onLayout={this.handleLayout}>
