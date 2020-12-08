@@ -7,56 +7,124 @@ import {
   TextInput,
   Platform,
   ActivityIndicator,
-  AsyncStorage,
-  FlatList
+  FlatList,
+  Image
 } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
+const favouriteEmojis = [
+  {
+    "name": "THUMBS UP SIGN",
+    "unified": "1F44D",
+    "short_name": "+1",
+    "short_names": ["+1", "thumbsup"],
+    "text": null,
+    "texts": null,
+    "category": "People & Body",
+    "sort_order": 20
+  },
+  {
+    "name": "THUMBS DOWN SIGN",
+    "unified": "1F44E",
+    "short_name": "-1",
+    "short_names": [
+      "-1",
+      "thumbsdown"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "People & Body",
+    "sort_order": 21
+  }, 
+  {
+    "name": "WHITE MEDIUM STAR",
+    "unified": "2B50",
+    "short_name": "star",
+    "short_names": [
+      "star"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Travel & Places",
+    "sort_order": 186
+  },
+  {
+    "name": "BLACK HEART SUIT",
+    "unified": "2665-FE0F",
+    "short_name": "hearts",
+    "short_names": [
+      "hearts"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Activities",
+    "sort_order": 71
+  },
+  {
+    "name": "WARNING SIGN",
+    "unified": "26A0-FE0F",
+    "short_name": "warning",
+    "short_names": [
+      "warning"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Symbols",
+    "sort_order": 14
+  }
+]
+
 export const Categories = {
   all: {
-    symbol: null,
-    name: "All"
+    name: "All",
+    icon : null
   },
   history: {
-    symbol: "🕘",
-    name: "Recently used"
+    name: "Recently used",
+    icon : require("./assets/Recent_Gray.png"),
+    unSelectedIcon : require("./assets/Recent_Gray_Light.png"),
   },
   emotion: {
-    symbol: "😀",
-    name: "Smileys & Emotion"
-  },
-  people: {
-    symbol: "🧑",
-    name: "People & Body"
+    name: "Smileys & Emotion",
+    icon : require("./assets/Smileys_People_Gray.png"),
+    unSelectedIcon : require("./assets/Smileys_People_Gray_Light.png"),
   },
   nature: {
-    symbol: "🦄",
-    name: "Animals & Nature"
+    name: "Animals & Nature",
+    icon : require("./assets/Animals_Nature_Gray.png"),
+    unSelectedIcon : require("./assets/Animals_Nature_Gray_Light.png"),
   },
   food: {
-    symbol: "🍔",
-    name: "Food & Drink"
+    name: "Food & Drink",
+    icon : require("./assets/Food_Drink_Gray.png"),
+    unSelectedIcon : require("./assets/Food_Drink_Gray_Light.png"),
   },
   activities: {
-    symbol: "⚾️",
-    name: "Activities"
+    name: "Activities",
+    icon : require("./assets/Activity_Gray.png"),
+    unSelectedIcon : require("./assets/Activity_Gray_Light.png"),
   },
   places: {
-    symbol: "✈️",
-    name: "Travel & Places"
+    name: "Travel & Places",
+    icon : require("./assets/Travel_Places_Gray.png"),
+    unSelectedIcon : require("./assets/Travel_Places_Gray_Light.png"),
   },
   objects: {
-    symbol: "💡",
-    name: "Objects"
+    name: "Objects",
+    icon : require("./assets/Objects_Gray.png"),
+    unSelectedIcon : require("./assets/Objects_Gray_Light.png"),
   },
   symbols: {
-    symbol: "🔣",
-    name: "Symbols"
+    name: "Symbols",
+    icon : require("./assets/Symbols_Gray.png"),
+    unSelectedIcon : require("./assets/Symbols_Gray_Light.png"),
   },
   flags: {
-    symbol: "🏳️‍🌈",
-    name: "Flags"
+    name: "Flags",
+    icon : require("./assets/Flags_Gray.png"),
+    unSelectedIcon : require("./assets/Flags_Gray_Light.png"),
   }
 };
 
@@ -71,7 +139,6 @@ const categoryKeys = Object.keys(Categories);
 
 const TabBar = ({ theme, activeCategory, onPress, width }) => {
   const tabSize = width / categoryKeys.length;
-
   return categoryKeys.map(c => {
     const category = Categories[c];
     if (c !== "all")
@@ -87,16 +154,14 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
             alignItems: "center",
             justifyContent: "center"
           }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              paddingBottom: 8,
-              fontSize: tabSize - 24
-            }}
-          >
-            {category.symbol}
-          </Text>
+        > 
+        <Image 
+          source={category === activeCategory ? category.icon : category.unSelectedIcon}
+          style={{
+            height : 20,
+            width : 20
+          }}
+          /> 
         </TouchableOpacity>
       );
   });
@@ -123,7 +188,7 @@ const storage_key = "@react-native-emoji-selector:HISTORY";
 export default class EmojiSelector extends Component {
   state = {
     searchQuery: "",
-    category: Categories.people,
+    category: Categories.history,
     isReady: false,
     history: [],
     emojiList: null,
@@ -146,12 +211,31 @@ export default class EmojiSelector extends Component {
   };
 
   handleEmojiSelect = emoji => {
-    if (this.props.showHistory) {
+    const { category } = this.state;
+    if (category.name !== 'history') {
       this.addToHistoryAsync(emoji);
     }
-    // this.props.onEmojiSelected(charFromEmojiObject(emoji));
     this.props.onEmojiSelected((emoji.unified));
   };
+
+  uniqueEmojisOnly = (emojis) => {
+    let uniqueEmojis = [];
+    for(let i = 0; i<emojis.length; i++) {
+      let isDuplicate = false;
+      for(let j = i+1; j<emojis.length; j++) {
+        if(emojis[i].unified === emojis[j].unified) {
+          isDuplicate = true;
+          break;
+        }
+      }
+
+      if(!isDuplicate) {
+        uniqueEmojis.push(emojis[i]);
+      }
+    }
+
+    return uniqueEmojis;
+  }
 
   handleSearch = searchQuery => {
     this.setState({ searchQuery });
@@ -159,7 +243,6 @@ export default class EmojiSelector extends Component {
 
   addToHistoryAsync = async emoji => {
     let history = await AsyncStorage.getItem(storage_key);
-
     let value = [];
     if (!history) {
       // no history
@@ -176,16 +259,16 @@ export default class EmojiSelector extends Component {
     }
 
     AsyncStorage.setItem(storage_key, JSON.stringify(value));
+    const uniqueEmojis = this.uniqueEmojisOnly( [...favouriteEmojis, ...value])
     this.setState({
-      history: value
+      history: uniqueEmojis
     });
   };
 
   loadHistoryAsync = async () => {
     let result = await AsyncStorage.getItem(storage_key);
     if (result) {
-      let history = JSON.parse(result);
-      this.setState({ history });
+      return JSON.parse(result);
     }
   };
 
@@ -236,7 +319,7 @@ export default class EmojiSelector extends Component {
         return list.map(emoji => ({ key: emoji.unified, emoji }));
       }
     })()
-    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData.filter(e => !this.props.selectedEmoji.has(e.emoji.unified))
+    return this.props.shouldInclude ? emojiData.filter(e => this.props.shouldInclude(e.emoji)) : emojiData;
   }
 
   prerenderEmojis(callback) {
@@ -266,13 +349,14 @@ export default class EmojiSelector extends Component {
   //
   //  LIFECYCLE METHODS
   //
-  componentDidMount() {
-    const { category, showHistory } = this.props;
-    this.setState({ category });
-
-    if (showHistory) {
-      this.loadHistoryAsync();
+  async componentDidMount() {
+    let history = favouriteEmojis;
+    let recentlyUsed = await this.loadHistoryAsync();
+    if(recentlyUsed) {
+      history = [...history, ...recentlyUsed];
     }
+    history =  this.uniqueEmojisOnly(history);
+    this.setState({ history });
   }
 
   render() {
@@ -304,7 +388,7 @@ export default class EmojiSelector extends Component {
       </View>
     );
 
-    const title = searchQuery !== "" ? "Search Results" : category.name;
+    const title = searchQuery !== "" ? "Search Results" : category.name === "Smileys & Emotion" ? "Smileys, Emotion & Gestures" : category.name;
 
     return (
       <View style={styles.frame} {...other} onLayout={this.handleLayout}>
@@ -361,7 +445,6 @@ EmojiSelector.defaultProps = {
   showHistory: false,
   showSectionTitles: true,
   columns: 6,
-  selectedEmoji : new Map(),
   placeholder: "Search..."
 };
 
@@ -387,15 +470,15 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.75)"
   },
   search: {
-    ...Platform.select({
+   ...Platform.select({
       ios: {
-        height: 36,
         paddingLeft: 8,
-        borderRadius: 10,
-        backgroundColor: "#E5E8E9"
       }
     }),
-    margin: 8
+    margin: 8,
+    height: 30,
+    borderRadius: 4,
+    backgroundColor: "#F2F2F2"
   },
   container: {
     flex: 1,

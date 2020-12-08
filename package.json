@@ -13,7 +13,9 @@
   ],
   "author": "Arron Hunt",
   "license": "MIT",
-  "dependencies": {},
+  "peerDependencies": {
+    "@react-native-community/async-storage": "1.6.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GSynergy/react-native-emoji-selector.git"
