@@ -17,7 +17,7 @@
     "@react-native-community/async-storage": "1.6.2"
   },
   "directories": {
-   "assets:": "./src/assets"
+   "assets:": "./assets"
   },
   "repository": {
     "type": "git",
