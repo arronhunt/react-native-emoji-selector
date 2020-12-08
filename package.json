@@ -17,7 +17,8 @@
     "@react-native-community/async-storage": "1.6.2"
   },
   "files": [
-    "assets"
+    "assets",
+    "emoji.json"
    ],
   "repository": {
     "type": "git",
