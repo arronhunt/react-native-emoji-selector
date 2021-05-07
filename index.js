@@ -12,6 +12,7 @@ import {
   PlatformColor,
   Appearance,
   useColorScheme,
+  Modal,
 } from "react-native";
 import emoji_datasource from "emoji-datasource";
 
@@ -73,11 +74,12 @@ const emojiByCategory = (category) =>
 const sortEmoji = (list) => list.sort((a, b) => a.sort_order - b.sort_order);
 const categoryKeys = Object.keys(Categories);
 
-const TabBar = ({ theme, activeCategory, onPress, width }) => {
-  const tabSize = width / categoryKeys.length;
+const TabBar = ({ theme, activeCategory, onPress, width, styles }) => {
+  const categories = Object.keys(Categories);
+  const tabSize = Math.min(width / categories.length, 56);
   const colorScheme = useColorScheme();
 
-  return categoryKeys.map((c) => {
+  return categories.map((c) => {
     const category = Categories[c];
     if (c !== "all")
       return (
@@ -86,7 +88,6 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
           onPress={() => onPress(category)}
           activeOpacity={0.5}
           style={[
-            defaultStyles.tab,
             {
               height: tabSize,
               borderColor:
@@ -96,15 +97,10 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
                   ? PlatformColor("systemGray5")
                   : PlatformColor("systemGray4") /*TODO: Android */,
             },
+            styles.tab,
           ]}
         >
-          <Text
-            style={{
-              textAlign: "center",
-              paddingBottom: 8,
-              fontSize: tabSize - 24,
-            }}
-          >
+          <Text style={[{ fontSize: tabSize - 24 }, styles.tabInner]}>
             {category.symbol}
           </Text>
         </TouchableOpacity>
@@ -128,6 +124,66 @@ const EmojiCell = ({ emoji, colSize, ...other }) => (
     </Text>
   </TouchableOpacity>
 );
+
+// TODO: Move all these styles to defaultStyles and allow for overrides
+const VariationPicker = ({ emoji, onEmojiSelected, ...props }) => {
+  const renderEmojis = () => {
+    let { skin_variations } = emoji;
+    let variants = Object.keys(skin_variations).map(
+      (skin) => skin_variations[skin]
+    );
+
+    return (
+      <View
+        style={{
+          backgroundColor: PlatformColor("secondarySystemBackground"),
+          width: 240,
+          height: 176,
+          padding: 24,
+          borderRadius: 24,
+        }}
+      >
+        <FlatList
+          data={[].concat(emoji, variants)}
+          renderItem={({ item }) => (
+            <EmojiCell
+              key={item.key}
+              emoji={item}
+              colSize={64}
+              onPress={() => onEmojiSelected(item)}
+            />
+          )}
+          keyExtractor={(item) => item.unified}
+          horizontal={false}
+          numColumns={3}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <Modal
+      animationType="fade"
+      transparent={true}
+      style={{
+        flex: 1,
+      }}
+      {...props}
+    >
+      <View
+        style={{
+          flex: 1,
+          height: "100%",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {emoji ? renderEmojis() : "..."}
+      </View>
+    </Modal>
+  );
+};
 
 const storage_key = "@react-native-emoji-selector:HISTORY";
 const EmojiSelector = ({
@@ -153,6 +209,8 @@ const EmojiSelector = ({
     colSize: 0,
     width: 0,
   });
+  let [selectedEmoji, setSelectedEmoji] = React.useState(null);
+  let [showVariations, setShowVariations] = React.useState(false);
 
   const scrollviewRef = React.useRef(null);
   const styles = {
@@ -242,6 +300,17 @@ const EmojiSelector = ({
     //   addToHistoryAsync(emoji);
     // }
     onEmojiSelected(charFromEmojiObject(emoji));
+    if (showVariations) {
+      setShowVariations(false);
+    }
+  };
+  const handleEmojiLongPress = (emoji) => {
+    if (emoji.skin_variations) {
+      setSelectedEmoji(emoji);
+      setShowVariations(true);
+    } else {
+      handleEmojiSelect(emoji);
+    }
   };
 
   const renderEmojiCell = ({ item }) => (
@@ -249,6 +318,7 @@ const EmojiSelector = ({
       key={item.key}
       emoji={item.emoji}
       onPress={() => handleEmojiSelect(item.emoji)}
+      onLongPress={() => handleEmojiLongPress(item.emoji)}
       colSize={state.colSize}
     />
   );
@@ -265,12 +335,19 @@ const EmojiSelector = ({
 
   return (
     <View style={styles.frame} {...other} onLayout={handleLayout}>
+      <VariationPicker
+        emoji={selectedEmoji}
+        visible={showVariations}
+        onEmojiSelected={handleEmojiSelect}
+        onRequestClose={() => setShowVariations(false)}
+      />
       <View style={styles.tabBar}>
         {showTabs && (
           <TabBar
             activeCategory={state.category}
             onPress={handleTabSelect}
             theme={theme}
+            styles={styles}
             width={state.width}
           />
         )}
@@ -354,6 +431,10 @@ export const defaultStyles = StyleSheet.create({
     borderBottomWidth: 2,
     alignItems: "center",
     justifyContent: "center",
+  },
+  tabInner: {
+    textAlign: "center",
+    paddingBottom: 8,
   },
   tabBar: {
     flexDirection: "row",
