@@ -1,3 +1,5 @@
+/* TODO: Update Types */
+
 declare module "react-native-emoji-selector" {
   import * as React from "react";
 
