@@ -6,12 +6,13 @@ import {
   SafeAreaView,
   PlatformColor,
 } from "react-native";
+import EmojiSelector, { Categories } from "./module";
 
-import EmojiSelector, { Categories, defaultStyles } from "./module";
 const THEME = PlatformColor("systemFill");
 
 export default App = () => {
   const [emoji, setEmoji] = React.useState(null);
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
@@ -29,11 +30,6 @@ export default App = () => {
         showHistory={true}
         showSectionTitles={true}
         category={Categories.people}
-        overrideStyles={{
-          frame: {
-            ...defaultStyles.frame,
-          },
-        }}
       />
     </SafeAreaView>
   );
