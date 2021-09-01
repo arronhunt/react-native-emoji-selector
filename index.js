@@ -328,6 +328,7 @@ export default class EmojiSelector extends Component {
                   style={styles.scrollview}
                   contentContainerStyle={{ paddingBottom: colSize }}
                   data={this.returnSectionData()}
+                  nestedScrollEnabled={true}
                   renderItem={this.renderEmojiCell}
                   horizontal={false}
                   numColumns={columns}
