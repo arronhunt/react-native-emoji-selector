@@ -75,30 +75,30 @@ const TabBar = ({ theme, activeCategory, showHistory, onPress, width }) => {
     if ((c === "history" && !showHistory) || c === "all") return null;
 
     const category = Categories[c];
-		return (
-			<TouchableOpacity
-				key={category.name}
-				onPress={() => onPress(category)}
-				style={{
-					flex: 1,
-					height: tabSize,
-					borderColor: category === activeCategory ? theme : "#EEEEEE",
-					borderBottomWidth: 2,
-					alignItems: "center",
-					justifyContent: "center"
-				}}
-			>
-				<Text
-					style={{
-						textAlign: "center",
-						paddingBottom: 8,
-						fontSize: tabSize - 24
-					}}
-				>
-					{category.symbol}
-				</Text>
-			</TouchableOpacity>
-		);
+    return (
+      <TouchableOpacity
+        key={category.name}
+        onPress={() => onPress(category)}
+        style={{
+          flex: 1,
+          height: tabSize,
+          borderColor: category === activeCategory ? theme : "#EEEEEE",
+          borderBottomWidth: 2,
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            paddingBottom: 8,
+            fontSize: tabSize - 24
+          }}
+        >
+          {category.symbol}
+        </Text>
+      </TouchableOpacity>
+    );
   });
 };
 
