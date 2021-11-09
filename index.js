@@ -68,36 +68,37 @@ const emojiByCategory = category =>
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const categoryKeys = Object.keys(Categories);
 
-const TabBar = ({ theme, activeCategory, onPress, width }) => {
+const TabBar = ({ theme, activeCategory, showHistory, onPress, width }) => {
   const tabSize = width / categoryKeys.length;
 
   return categoryKeys.map(c => {
+    if ((c === "history" && !showHistory) || c === "all") return null;
+
     const category = Categories[c];
-    if (c !== "all")
-      return (
-        <TouchableOpacity
-          key={category.name}
-          onPress={() => onPress(category)}
-          style={{
-            flex: 1,
-            height: tabSize,
-            borderColor: category === activeCategory ? theme : "#EEEEEE",
-            borderBottomWidth: 2,
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              paddingBottom: 8,
-              fontSize: tabSize - 24
-            }}
-          >
-            {category.symbol}
-          </Text>
-        </TouchableOpacity>
-      );
+		return (
+			<TouchableOpacity
+				key={category.name}
+				onPress={() => onPress(category)}
+				style={{
+					flex: 1,
+					height: tabSize,
+					borderColor: category === activeCategory ? theme : "#EEEEEE",
+					borderBottomWidth: 2,
+					alignItems: "center",
+					justifyContent: "center"
+				}}
+			>
+				<Text
+					style={{
+						textAlign: "center",
+						paddingBottom: 8,
+						fontSize: tabSize - 24
+					}}
+				>
+					{category.symbol}
+				</Text>
+			</TouchableOpacity>
+		);
   });
 };
 
@@ -310,6 +311,7 @@ export default class EmojiSelector extends Component {
           {showTabs && (
             <TabBar
               activeCategory={category}
+              showHistory={showHistory}
               onPress={this.handleTabSelect}
               theme={theme}
               width={this.state.width}
