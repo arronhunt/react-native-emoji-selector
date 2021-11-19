@@ -374,6 +374,8 @@ export default class EmojiSelector extends Component {
     });
   };
 
+  keyExtractor = (item) => item.key;
+
   //
   //  LIFECYCLE METHODS
   //
@@ -399,7 +401,8 @@ export default class EmojiSelector extends Component {
       ...other
     } = this.props;
 
-    const { category, colSize, isReady, searchQuery, height, selectedEmoji } = this.state;
+    const { category, colSize, isReady, searchQuery, height, selectedEmoji } =
+      this.state;
 
     const Searchbar = (
       <View style={styles.searchbar_container}>
@@ -483,7 +486,7 @@ export default class EmojiSelector extends Component {
             <FlatList
               data={this.getMultipleSkinEmojis(selectedEmoji)}
               renderItem={this.renderEmojiCell}
-              keyExtractor={item => item.key}
+              keyExtractor={this.keyExtractor}
               horizontal={true}
             />
           </View>
