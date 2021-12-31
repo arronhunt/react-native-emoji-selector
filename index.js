@@ -15,6 +15,19 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
+export const getEmojiSkinsList = (emojiSkin) => {
+  for (const reaction of emoji) {
+    if (JSON.stringify(reaction).includes(emojiSkin)) {
+      if (reaction.skin_variations) {
+        return Object.values(reaction.skin_variations).map(
+          (skin) => skin.unified
+        );
+      }
+    }
+  }
+  return [emojiSkin];
+};
+
 const favouriteEmojis = [
   {
     name: "THUMBS UP SIGN",
@@ -23,8 +36,28 @@ const favouriteEmojis = [
     short_names: ["+1", "thumbsup"],
     text: null,
     texts: null,
-    category: "People & Body",
-    sort_order: 20,
+    category: "Smileys & Emotion",
+    sort_order: 176,
+    skin_variations: {
+      "1F3FB": {
+        unified: "1F44D-1F3FB",
+      },
+      "1F3FC": {
+        unified: "1F44D-1F3FC",
+      },
+      "1F3FD": {
+        unified: "1F44D-1F3FD",
+      },
+      "1F3FE": {
+        unified: "1F44D-1F3FE",
+      },
+      "1F3FF": {
+        unified: "1F44D-1F3FF",
+      },
+      "1F44D": {
+        unified: "1F44D",
+      },
+    },
   },
   {
     name: "THUMBS DOWN SIGN",
@@ -33,8 +66,28 @@ const favouriteEmojis = [
     short_names: ["-1", "thumbsdown"],
     text: null,
     texts: null,
-    category: "People & Body",
-    sort_order: 21,
+    category: "Smileys & Emotion",
+    sort_order: 177,
+    skin_variations: {
+      "1F3FB": {
+        unified: "1F44E-1F3FB",
+      },
+      "1F3FC": {
+        unified: "1F44E-1F3FC",
+      },
+      "1F3FD": {
+        unified: "1F44E-1F3FD",
+      },
+      "1F3FE": {
+        unified: "1F44E-1F3FE",
+      },
+      "1F3FF": {
+        unified: "1F44E-1F3FF",
+      },
+      "1F44E": {
+        unified: "1F44E",
+      },
+    },
   },
   {
     name: "WHITE MEDIUM STAR",
@@ -44,7 +97,7 @@ const favouriteEmojis = [
     text: null,
     texts: null,
     category: "Travel & Places",
-    sort_order: 186,
+    sort_order: 965,
   },
   {
     name: "BLACK HEART SUIT",
@@ -54,7 +107,7 @@ const favouriteEmojis = [
     text: null,
     texts: null,
     category: "Activities",
-    sort_order: 71,
+    sort_order: 1065,
   },
   {
     name: "WARNING SIGN",
@@ -64,7 +117,7 @@ const favouriteEmojis = [
     text: null,
     texts: null,
     category: "Symbols",
-    sort_order: 14,
+    sort_order: 1342,
   },
 ];
 
@@ -198,8 +251,8 @@ export default class EmojiSelector extends Component {
     colSize: 0,
     width: 0,
     height: 0,
-    selectedEmoji: null,
-    modalVisible: false,
+    selectedEmoji: undefined,
+    showSkins: false,
   };
 
   //
@@ -216,16 +269,33 @@ export default class EmojiSelector extends Component {
     }
   };
 
+  getSkinsList = (emojiData) => {
+    return Object.values(emojiData.skin_variations).map((skin) => skin.unified);
+  };
+
+  getEmojiType = (emoji, emojiData) => {
+    const emojiSkins = {};
+    emojiSkins[emoji] = emojiData.skin_variations
+      ? this.getSkinsList(emojiData)
+      : [emoji];
+    return emojiSkins;
+  };
+
   handleEmojiSelect = (emoji) => {
-    if (emoji.skin_variations) {
-      this.setState({ modalVisible: true, selectedEmoji: emoji });
+    const { category, showSkins, selectedEmoji } = this.state;
+
+    if (!this.props.showSkinVariations) {
+      const emojiType = this.getEmojiType(emoji.unified, emoji);
+      this.props.onEmojiSelected(emojiType);
+    } else if (emoji.skin_variations) {
+      this.setState({ showSkins: true, selectedEmoji: emoji });
     } else {
-      const { category } = this.state;
-      if (category.name !== "history") {
-        this.addToHistoryAsync(emoji);
-      }
       this.props.onEmojiSelected(emoji.unified);
-      if (this.state.modalVisible) this.setState({ modalVisible: false });
+      if (showSkins) this.setState({ showSkins: false });
+      if (selectedEmoji) this.setState({ selectedEmoji: undefined });
+    }
+    if (!showSkins && category.name !== "history") {
+      this.addToHistoryAsync(emoji);
     }
   };
 
@@ -287,7 +357,9 @@ export default class EmojiSelector extends Component {
     let multipleSkinEmojis = [];
     if (emoji && emoji.skin_variations) {
       for (const [key, value] of Object.entries(emoji.skin_variations)) {
-        multipleSkinEmojis.push({ key: key, emoji: value });
+        // '1F44D and 1F44E are default THUMBS UP and THUMBS DOWN emoji skins. Don't Want To Show Those as Skins But Needed In Data for Searching'
+        if (value.unified !== "1F44D" && value.unified !== "1F44E")
+          multipleSkinEmojis.push({ key: key, emoji: value });
       }
     }
     return multipleSkinEmojis;
@@ -346,7 +418,15 @@ export default class EmojiSelector extends Component {
       }
     })();
     return this.props.shouldInclude
-      ? emojiData.filter((e) => this.props.shouldInclude(e.emoji))
+      ? emojiData.filter((e) => {
+          if (e.emoji.skin_variations) {
+            for (const skin of Object.values(e.emoji.skin_variations)) {
+              if (!this.props.shouldInclude(skin)) return false;
+            }
+            return true;
+          }
+          return this.props.shouldInclude(e.emoji);
+        })
       : emojiData;
   }
 
@@ -470,13 +550,13 @@ export default class EmojiSelector extends Component {
         </View>
         <Modal
           transparent={true}
-          visible={this.state.modalVisible}
+          visible={this.state.showSkins}
           onRequestClose={() => {
-            this.setState({ modalVisible: false });
+            this.setState({ showSkins: false });
           }}
         >
           <TouchableOpacity
-            onPress={() => this.setState({ modalVisible: false })}
+            onPress={() => this.setState({ showSkins: false })}
             style={{
               height: height + height / 2,
               ...styles.modalBackground,
@@ -491,7 +571,7 @@ export default class EmojiSelector extends Component {
             />
           </View>
           <TouchableOpacity
-            onPress={() => this.setState({ modalVisible: false })}
+            onPress={() => this.setState({ showSkins: false })}
             style={{ flex: 1, ...styles.modalBackground }}
           />
         </Modal>
