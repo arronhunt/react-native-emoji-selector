@@ -15,6 +15,19 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
+export const getEmojiSkinsList = (emojiSkin) => {
+  for (const reaction of emoji) {
+    if (JSON.stringify(reaction).includes(emojiSkin)) {
+      if (reaction.skin_variations) {
+        return Object.values(reaction.skin_variations).map(
+          (skin) => skin.unified
+        );
+      }
+    }
+  }
+  return [emojiSkin];
+};
+
 const favouriteEmojis = [
   {
     name: "THUMBS UP SIGN",
