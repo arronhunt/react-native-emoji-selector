@@ -257,12 +257,7 @@ export default class EmojiSelector extends Component {
   };
 
   getSkinsList = (emojiData) => {
-    const emojiSkins = Object.values(emojiData.skin_variations);
-    const skinsList = [];
-    for (const skin of emojiSkins) {
-      skinsList.push(skin.unified);
-    }
-    return skinsList;
+    return Object.values(emojiData.skin_variations).map((skin) => skin.unified);
   };
 
   getEmojiType = (emoji, emojiData) => {
