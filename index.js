@@ -383,6 +383,7 @@ export default class EmojiSelector extends Component {
 
   returnSectionData() {
     const { history, emojiList, searchQuery, category } = this.state;
+    const uniqueEmojisOnly = this.uniqueEmojisOnly;
     let emojiData = (function () {
       if (category === Categories.all && searchQuery === "") {
         //TODO: OPTIMIZE THIS
@@ -410,7 +411,18 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          list = history;
+          list = history.map((historyReaction) => {
+            if (!historyReaction.name) {
+              // its a skin
+              for (const reaction of emoji) {
+                if (JSON.stringify(reaction).includes(historyReaction.unified)) {
+                  return reaction;
+                }
+              }
+            }
+            return historyReaction;
+          });
+          list = uniqueEmojisOnly(list);
         } else {
           list = emojiList[name];
         }
