@@ -383,8 +383,7 @@ export default class EmojiSelector extends Component {
 
   returnSectionData() {
     const { history, emojiList, searchQuery, category } = this.state;
-    const uniqueEmojisOnly = this.uniqueEmojisOnly;
-    let emojiData = (function () {
+    let emojiData = (() => {
       if (category === Categories.all && searchQuery === "") {
         //TODO: OPTIMIZE THIS
         let largeList = [];
@@ -422,7 +421,7 @@ export default class EmojiSelector extends Component {
             }
             return historyReaction;
           });
-          list = uniqueEmojisOnly(list);
+          list = this.uniqueEmojisOnly(list);
         } else {
           list = emojiList[name];
         }
