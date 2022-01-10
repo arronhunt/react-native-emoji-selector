@@ -410,16 +410,17 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          list = history.map((historyReaction) => {
-            if (!historyReaction.name) {
+          list = history.filter(reaction => JSON.stringify(emoji).includes(reaction.unified))
+          list = list.map((recentReaction) => {
+            if (!recentReaction.name) {
               // its a skin
               for (const reaction of emoji) {
-                if (JSON.stringify(reaction).includes(historyReaction.unified)) {
+                if (JSON.stringify(reaction).includes(recentReaction.unified)) {
                   return reaction;
                 }
               }
             }
-            return historyReaction;
+            return recentReaction;
           });
           list = this.uniqueEmojisOnly(list);
         } else {
