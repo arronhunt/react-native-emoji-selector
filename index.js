@@ -232,7 +232,7 @@ const EmojiCell = ({ emoji, colSize, multipleSkins, ...other }) => {
       }}
       {...other}
     >
-      <Text style={{ color: "#FFFFFF", fontSize: colSize - 10 }}>
+      <Text style={{ color: "#FFFFFF", fontSize: colSize - 12 }}>
         {charFromEmojiObject(emoji)}
       </Text>
       {multipleSkins && <TriangleCorner />}
