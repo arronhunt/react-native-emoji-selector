@@ -410,7 +410,8 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          list = history.filter(reaction => JSON.stringify(emoji).includes(reaction.unified))
+          const stringifiedEmojiData = JSON.stringify(emoji);
+          list = history.filter(reaction => stringifiedEmojiData.includes(reaction.unified))
           list = list.map((recentReaction) => {
             if (!recentReaction.name) {
               // its a skin
