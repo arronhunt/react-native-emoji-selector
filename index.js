@@ -365,6 +365,14 @@ export default class EmojiSelector extends Component {
     return multipleSkinEmojis;
   };
 
+  getAllEmojiSkinsList = (reaction) => {
+    // includes the default emoji skin too
+    let allReactionSkins = [];
+    allReactionSkins.push(reaction.unified)
+    if (reaction.skin_variations) allReactionSkins = allReactionSkins.concat(this.getSkinsList(reaction))
+    return allReactionSkins;
+  }
+
   //
   //  RENDER METHODS
   //
@@ -410,15 +418,19 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          const stringifiedEmojiData = JSON.stringify(emoji);
-          list = history.filter(reaction => stringifiedEmojiData.includes(reaction.unified))
+          const isThereInEmojiData = (recentReaction) => {
+            return emoji.some(reaction => {
+              const allEmojiSkinsList = this.getAllEmojiSkinsList(reaction);
+              return allEmojiSkinsList.includes(recentReaction.unified);
+            })
+          }
+          list = history.filter(isThereInEmojiData)
           list = list.map((recentReaction) => {
             if (!recentReaction.name) {
               // its a skin
               for (const reaction of emoji) {
-                if (JSON.stringify(reaction).includes(recentReaction.unified)) {
-                  return reaction;
-                }
+                const allEmojiSkinsList = this.getAllEmojiSkinsList(reaction);
+                if (allEmojiSkinsList.includes(recentReaction.unified)) return reaction;
               }
             }
             return recentReaction;
