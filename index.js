@@ -365,18 +365,6 @@ export default class EmojiSelector extends Component {
     return multipleSkinEmojis;
   };
 
-  getAllEmojiSkins = (reaction) => {
-    // includes the default emoji skin too
-    const allReactionSkins = new Map();
-    allReactionSkins.set(reaction.unified);
-    if (reaction.skin_variations) {
-      Object.values(reaction.skin_variations).forEach(value => {
-        allReactionSkins.set(value.unified);
-      })
-    }
-    return allReactionSkins;
-  }
-
   //
   //  RENDER METHODS
   //
@@ -422,24 +410,16 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          const isThereInEmojiData = (recentReaction) => {
-            return emoji.some(reaction => {
-              const allEmojiSkins = this.getAllEmojiSkins(reaction);
-              return allEmojiSkins.has(recentReaction.unified);
-            })
-          }
-          list = history.filter(isThereInEmojiData)
-          list = list.map((recentReaction) => {
-            if (!recentReaction.name) {
-              // its a skin
-              for (const reaction of emoji) {
-                const allEmojiSkins = this.getAllEmojiSkins(reaction);
-                if (allEmojiSkins.has(recentReaction.unified)) return reaction;
-              }
+          const allEmojiSkins = new Set();
+          emoji.forEach(reaction => {
+            allEmojiSkins.add(reaction.unified)
+            if (reaction.skin_variations) {
+              Object.values(reaction.skin_variations).forEach(value => {
+                allEmojiSkins.add(value.unified)
+              })
             }
-            return recentReaction;
-          });
-          list = this.uniqueEmojisOnly(list);
+          })
+          list = history.filter(recentReaction => allEmojiSkins.has(recentReaction.unified))
         } else {
           list = emojiList[name];
         }
