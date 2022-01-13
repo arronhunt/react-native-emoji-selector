@@ -6056,16 +6056,6 @@
     "sort_order": 560
   },
   {
-    "name": "BLACK CAT",
-    "unified": "1F408-200D-2B1B",
-    "short_name": "black_cat",
-    "short_names": ["black_cat"],
-    "text": null,
-    "texts": null,
-    "category": "Animals & Nature",
-    "sort_order": 525
-  },
-  {
     "name": "CAT",
     "unified": "1F408",
     "short_name": "cat2",
@@ -7361,33 +7351,6 @@
     }
   },
   {
-    "name": "MAN FEEDING BABY",
-    "unified": "1F468-200D-1F37C",
-    "short_name": "man_feeding_baby",
-    "short_names": ["man_feeding_baby"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 343,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F468-1F3FB-200D-1F37C"
-      },
-      "1F3FC": {
-        "unified": "1F468-1F3FC-200D-1F37C"
-      },
-      "1F3FD": {
-        "unified": "1F468-1F3FD-200D-1F37C"
-      },
-      "1F3FE": {
-        "unified": "1F468-1F3FE-200D-1F37C"
-      },
-      "1F3FF": {
-        "unified": "1F468-1F3FF-200D-1F37C"
-      }
-    }
-  },
-  {
     "name": "MAN STUDENT",
     "unified": "1F468-200D-1F393",
     "short_name": "male-student",
@@ -8025,180 +7988,6 @@
     }
   },
   {
-    "name": "COUPLE WITH HEART: MAN, MAN",
-    "unified": "1F468-200D-2764-FE0F-200D-1F468",
-    "short_name": "man-heart-man",
-    "short_names": ["man-heart-man"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 473,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F468-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "KISS: MAN, MAN",
-    "unified": "1F468-200D-2764-FE0F-200D-1F48B-200D-1F468",
-    "short_name": "man-kiss-man",
-    "short_names": ["man-kiss-man"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 469,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F468-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F468-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F468-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F468-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F468-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      }
-    }
-  },
-  {
     "name": "MAN",
     "unified": "1F468",
     "short_name": "man",
@@ -8276,33 +8065,6 @@
       },
       "1F3FF": {
         "unified": "1F469-1F3FF-200D-1F373"
-      }
-    }
-  },
-  {
-    "name": "WOMAN FEEDING BABY",
-    "unified": "1F469-200D-1F37C",
-    "short_name": "woman_feeding_baby",
-    "short_names": ["woman_feeding_baby"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 342,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F469-1F3FB-200D-1F37C"
-      },
-      "1F3FC": {
-        "unified": "1F469-1F3FC-200D-1F37C"
-      },
-      "1F3FD": {
-        "unified": "1F469-1F3FD-200D-1F37C"
-      },
-      "1F3FE": {
-        "unified": "1F469-1F3FE-200D-1F37C"
-      },
-      "1F3FF": {
-        "unified": "1F469-1F3FF-200D-1F37C"
       }
     }
   },
@@ -8893,354 +8655,6 @@
     }
   },
   {
-    "name": "COUPLE WITH HEART: WOMAN, MAN",
-    "unified": "1F469-200D-2764-FE0F-200D-1F468",
-    "short_name": "woman-heart-man",
-    "short_names": ["woman-heart-man"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 472,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F468-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F468-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "COUPLE WITH HEART: WOMAN, WOMAN",
-    "unified": "1F469-200D-2764-FE0F-200D-1F469",
-    "short_name": "woman-heart-woman",
-    "short_names": ["woman-heart-woman"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 474,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F469-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F469-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F469-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F469-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F469-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F469-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F469-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F469-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F469-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F469-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F469-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F469-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F469-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F469-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F469-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F469-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F469-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F469-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F469-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F469-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F469-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F469-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F469-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F469-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F469-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "KISS: WOMAN, MAN",
-    "unified": "1F469-200D-2764-FE0F-200D-1F48B-200D-1F468",
-    "short_name": "woman-kiss-man",
-    "short_names": ["woman-kiss-man"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 468,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F468-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "KISS: WOMAN, WOMAN",
-    "unified": "1F469-200D-2764-FE0F-200D-1F48B-200D-1F469",
-    "short_name": "woman-kiss-woman",
-    "short_names": ["woman-kiss-woman"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 470,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F469-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F469-1F3FF"
-      }
-    }
-  },
-  {
     "name": "WOMAN",
     "unified": "1F469",
     "short_name": "woman",
@@ -9277,271 +8691,6 @@
     "category": "Smileys & Emotion",
     "sort_order": 475,
     "obsoleted_by": "1F468-200D-1F469-200D-1F466"
-  },
-  {
-    "name": "MAN AND WOMAN HOLDING HANDS",
-    "unified": "1F46B",
-    "short_name": "man_and_woman_holding_hands",
-    "short_names": [
-      "man_and_woman_holding_hands",
-      "woman_and_man_holding_hands",
-      "couple"
-    ],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 465,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F46B-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F46B-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F46B-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F46B-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F46B-1F3FF"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F468-1F3FE"
-      }
-    }
-  },
-  {
-    "name": "TWO MEN HOLDING HANDS",
-    "unified": "1F46C",
-    "short_name": "two_men_holding_hands",
-    "short_names": ["two_men_holding_hands", "men_holding_hands"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 466,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F46C-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F46C-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F46C-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F46C-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F46C-1F3FF"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F468-1F3FB-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F468-1F3FB-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F468-1F3FB-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F468-1F3FB-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F468-1F3FC-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F468-1F3FC-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F468-1F3FC-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F468-1F3FC-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F468-1F3FD-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F468-1F3FD-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F468-1F3FD-200D-1F91D-200D-1F468-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F468-1F3FD-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F468-1F3FE-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F468-1F3FE-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F468-1F3FE-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F468-1F3FE-200D-1F91D-200D-1F468-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F468-1F3FF-200D-1F91D-200D-1F468-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F468-1F3FF-200D-1F91D-200D-1F468-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F468-1F3FF-200D-1F91D-200D-1F468-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F468-1F3FF-200D-1F91D-200D-1F468-1F3FE"
-      }
-    }
-  },
-  {
-    "name": "TWO WOMEN HOLDING HANDS",
-    "unified": "1F46D",
-    "short_name": "two_women_holding_hands",
-    "short_names": ["two_women_holding_hands", "women_holding_hands"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 464,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F46D-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F46D-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F46D-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F46D-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F46D-1F3FF"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F469-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F469-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F469-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F469-1F3FB-200D-1F91D-200D-1F469-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F469-1F3FB"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F469-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F469-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F469-1F3FC-200D-1F91D-200D-1F469-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F469-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F469-1F3FC"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F469-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F469-1F3FD-200D-1F91D-200D-1F469-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F469-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F469-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F469-1F3FD"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F469-1F3FE-200D-1F91D-200D-1F469-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F469-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F469-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F469-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F469-1F3FF-200D-1F91D-200D-1F469-1F3FE"
-      }
-    }
   },
   {
     "name": "WOMAN POLICE OFFICER",
@@ -9663,60 +8812,6 @@
     "category": "Smileys & Emotion",
     "sort_order": 406,
     "obsoleted_by": "1F46F-200D-2640-FE0F"
-  },
-  {
-    "name": "WOMAN WITH VEIL",
-    "unified": "1F470-200D-2640-FE0F",
-    "short_name": "woman_with_veil",
-    "short_names": ["woman_with_veil"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 339,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F470-1F3FB-200D-2640-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F470-1F3FC-200D-2640-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F470-1F3FD-200D-2640-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F470-1F3FE-200D-2640-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F470-1F3FF-200D-2640-FE0F"
-      }
-    }
-  },
-  {
-    "name": "MAN WITH VEIL",
-    "unified": "1F470-200D-2642-FE0F",
-    "short_name": "man_with_veil",
-    "short_names": ["man_with_veil"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 338,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F470-1F3FB-200D-2642-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F470-1F3FC-200D-2642-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F470-1F3FD-200D-2642-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F470-1F3FE-200D-2642-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F470-1F3FF-200D-2642-FE0F"
-      }
-    }
   },
   {
     "name": "BRIDE WITH VEIL",
@@ -10693,93 +9788,6 @@
     "sort_order": 1123
   },
   {
-    "name": "KISS",
-    "unified": "1F48F",
-    "short_name": "couplekiss",
-    "short_names": ["couplekiss"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 467,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F48F-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F48F-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F48F-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F48F-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F48F-1F3FF"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FB"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FC"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FD"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F48B-200D-1F9D1-1F3FE"
-      }
-    }
-  },
-  {
     "name": "BOUQUET",
     "unified": "1F490",
     "short_name": "bouquet",
@@ -10788,93 +9796,6 @@
     "texts": null,
     "category": "Animals & Nature",
     "sort_order": 628
-  },
-  {
-    "name": "COUPLE WITH HEART",
-    "unified": "1F491",
-    "short_name": "couple_with_heart",
-    "short_names": ["couple_with_heart"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 471,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F491-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F491-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F491-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F491-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F491-1F3FF"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F9D1-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F9D1-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F9D1-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F9D1-1F3FB-200D-2764-FE0F-200D-1F9D1-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F9D1-1F3FB"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F9D1-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F9D1-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F9D1-1F3FC-200D-2764-FE0F-200D-1F9D1-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F9D1-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F9D1-1F3FC"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F9D1-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F9D1-1F3FD-200D-2764-FE0F-200D-1F9D1-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F9D1-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F9D1-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F9D1-1F3FD"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F9D1-1F3FE-200D-2764-FE0F-200D-1F9D1-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F9D1-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F9D1-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F9D1-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F9D1-1F3FF-200D-2764-FE0F-200D-1F9D1-1F3FE"
-      }
-    }
   },
   {
     "name": "WEDDING",
@@ -14045,16 +12966,6 @@
     "sort_order": 49
   },
   {
-    "name": "FACE WITH SPIRAL EYES",
-    "unified": "1F635-200D-1F4AB",
-    "short_name": "face_with_spiral_eyes",
-    "short_names": ["face_with_spiral_eyes"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 60
-  },
-  {
     "name": "DIZZY FACE",
     "unified": "1F635",
     "short_name": "dizzy_face",
@@ -14063,16 +12974,6 @@
     "texts": null,
     "category": "Smileys & Emotion",
     "sort_order": 59
-  },
-  {
-    "name": "FACE IN CLOUDS",
-    "unified": "1F636-200D-1F32B-FE0F",
-    "short_name": "face_in_clouds",
-    "short_names": ["face_in_clouds"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 38
   },
   {
     "name": "FACE WITHOUT MOUTH",
@@ -16425,33 +15326,6 @@
     "sort_order": 44
   },
   {
-    "name": "WOMAN FACEPALMING",
-    "unified": "1F926-200D-2640-FE0F",
-    "short_name": "woman-facepalming",
-    "short_names": ["woman-facepalming"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 262,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F926-1F3FB-200D-2640-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F926-1F3FC-200D-2640-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F926-1F3FD-200D-2640-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F926-1F3FE-200D-2640-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F926-1F3FF-200D-2640-FE0F"
-      }
-    }
-  },
-  {
     "name": "MAN FACEPALMING",
     "unified": "1F926-200D-2642-FE0F",
     "short_name": "man-facepalming",
@@ -16740,60 +15614,6 @@
     }
   },
   {
-    "name": "WOMAN IN TUXEDO",
-    "unified": "1F935-200D-2640-FE0F",
-    "short_name": "woman_in_tuxedo",
-    "short_names": ["woman_in_tuxedo"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 336,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F935-1F3FB-200D-2640-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F935-1F3FC-200D-2640-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F935-1F3FD-200D-2640-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F935-1F3FE-200D-2640-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F935-1F3FF-200D-2640-FE0F"
-      }
-    }
-  },
-  {
-    "name": "MAN IN TUXEDO",
-    "unified": "1F935-200D-2642-FE0F",
-    "short_name": "man_in_tuxedo",
-    "short_names": ["man_in_tuxedo"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 335,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F935-1F3FB-200D-2642-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F935-1F3FC-200D-2642-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F935-1F3FD-200D-2642-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F935-1F3FE-200D-2642-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F935-1F3FF-200D-2642-FE0F"
-      }
-    }
-  },
-  {
     "name": "MAN IN TUXEDO",
     "unified": "1F935",
     "short_name": "person_in_tuxedo",
@@ -16844,33 +15664,6 @@
       },
       "1F3FF": {
         "unified": "1F936-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "WOMAN SHRUGGING",
-    "unified": "1F937-200D-2640-FE0F",
-    "short_name": "woman-shrugging",
-    "short_names": ["woman-shrugging"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 265,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F937-1F3FB-200D-2640-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F937-1F3FC-200D-2640-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F937-1F3FD-200D-2640-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F937-1F3FE-200D-2640-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F937-1F3FF-200D-2640-FE0F"
       }
     }
   },
@@ -16983,33 +15776,6 @@
     }
   },
   {
-    "name": "PERSON DOING CARTWHEEL",
-    "unified": "1F938",
-    "short_name": "person_doing_cartwheel",
-    "short_names": ["person_doing_cartwheel"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 443,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F938-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F938-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F938-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F938-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F938-1F3FF"
-      }
-    }
-  },
-  {
     "name": "WOMAN JUGGLING",
     "unified": "1F939-200D-2640-FE0F",
     "short_name": "woman-juggling",
@@ -17064,33 +15830,6 @@
     }
   },
   {
-    "name": "JUGGLING",
-    "unified": "1F939",
-    "short_name": "juggling",
-    "short_names": ["juggling"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 455,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F939-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F939-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F939-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F939-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F939-1F3FF"
-      }
-    }
-  },
-  {
     "name": "FENCER",
     "unified": "1F93A",
     "short_name": "fencer",
@@ -17119,16 +15858,6 @@
     "texts": null,
     "category": "Smileys & Emotion",
     "sort_order": 447
-  },
-  {
-    "name": "WRESTLERS",
-    "unified": "1F93C",
-    "short_name": "wrestlers",
-    "short_names": ["wrestlers"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 446
   },
   {
     "name": "WOMAN PLAYING WATER POLO",
@@ -17185,33 +15914,6 @@
     }
   },
   {
-    "name": "WATER POLO",
-    "unified": "1F93D",
-    "short_name": "water_polo",
-    "short_names": ["water_polo"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 449,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F93D-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F93D-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F93D-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F93D-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F93D-1F3FF"
-      }
-    }
-  },
-  {
     "name": "WOMAN PLAYING HANDBALL",
     "unified": "1F93E-200D-2640-FE0F",
     "short_name": "woman-playing-handball",
@@ -17262,33 +15964,6 @@
       },
       "1F3FF": {
         "unified": "1F93E-1F3FF-200D-2642-FE0F"
-      }
-    }
-  },
-  {
-    "name": "HANDBALL",
-    "unified": "1F93E",
-    "short_name": "handball",
-    "short_names": ["handball"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 452,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F93E-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F93E-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F93E-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F93E-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F93E-1F3FF"
       }
     }
   },
@@ -18341,33 +17016,6 @@
     }
   },
   {
-    "name": "SUPERHERO",
-    "unified": "1F9B8",
-    "short_name": "superhero",
-    "short_names": ["superhero"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 349,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9B8-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F9B8-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F9B8-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F9B8-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F9B8-1F3FF"
-      }
-    }
-  },
-  {
     "name": "WOMAN SUPERVILLAIN",
     "unified": "1F9B9-200D-2640-FE0F",
     "short_name": "female_supervillain",
@@ -18422,33 +17070,6 @@
     }
   },
   {
-    "name": "SUPERVILLAIN",
-    "unified": "1F9B9",
-    "short_name": "supervillain",
-    "short_names": ["supervillain"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 352,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9B9-1F3FB"
-      },
-      "1F3FC": {
-        "unified": "1F9B9-1F3FC"
-      },
-      "1F3FD": {
-        "unified": "1F9B9-1F3FD"
-      },
-      "1F3FE": {
-        "unified": "1F9B9-1F3FE"
-      },
-      "1F3FF": {
-        "unified": "1F9B9-1F3FF"
-      }
-    }
-  },
-  {
     "name": "CHEESE WEDGE",
     "unified": "1F9C0",
     "short_name": "cheese_wedge",
@@ -18487,687 +17108,6 @@
     "texts": null,
     "category": "Smileys & Emotion",
     "sort_order": 67
-  },
-  {
-    "name": "FARMER",
-    "unified": "1F9D1-200D-1F33E",
-    "short_name": "farmer",
-    "short_names": ["farmer"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 278,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F33E"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F33E"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F33E"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F33E"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F33E"
-      }
-    }
-  },
-  {
-    "name": "COOK",
-    "unified": "1F9D1-200D-1F373",
-    "short_name": "cook",
-    "short_names": ["cook"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 281,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F373"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F373"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F373"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F373"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F373"
-      }
-    }
-  },
-  {
-    "name": "PERSON FEEDING BABY",
-    "unified": "1F9D1-200D-1F37C",
-    "short_name": "person_feeding_baby",
-    "short_names": ["person_feeding_baby"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 344,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F37C"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F37C"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F37C"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F37C"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F37C"
-      }
-    }
-  },
-  {
-    "name": "MX CLAUS",
-    "unified": "1F9D1-200D-1F384",
-    "short_name": "mx_claus",
-    "short_names": ["mx_claus"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 348,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F384"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F384"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F384"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F384"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F384"
-      }
-    }
-  },
-  {
-    "name": "STUDENT",
-    "unified": "1F9D1-200D-1F393",
-    "short_name": "student",
-    "short_names": ["student"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 269,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F393"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F393"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F393"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F393"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F393"
-      }
-    }
-  },
-  {
-    "name": "SINGER",
-    "unified": "1F9D1-200D-1F3A4",
-    "short_name": "singer",
-    "short_names": ["singer"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 299,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F3A4"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F3A4"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F3A4"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F3A4"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F3A4"
-      }
-    }
-  },
-  {
-    "name": "ARTIST",
-    "unified": "1F9D1-200D-1F3A8",
-    "short_name": "artist",
-    "short_names": ["artist"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 302,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F3A8"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F3A8"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F3A8"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F3A8"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F3A8"
-      }
-    }
-  },
-  {
-    "name": "TEACHER",
-    "unified": "1F9D1-200D-1F3EB",
-    "short_name": "teacher",
-    "short_names": ["teacher"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 272,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F3EB"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F3EB"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F3EB"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F3EB"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F3EB"
-      }
-    }
-  },
-  {
-    "name": "FACTORY WORKER",
-    "unified": "1F9D1-200D-1F3ED",
-    "short_name": "factory_worker",
-    "short_names": ["factory_worker"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 287,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F3ED"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F3ED"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F3ED"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F3ED"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F3ED"
-      }
-    }
-  },
-  {
-    "name": "TECHNOLOGIST",
-    "unified": "1F9D1-200D-1F4BB",
-    "short_name": "technologist",
-    "short_names": ["technologist"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 296,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F4BB"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F4BB"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F4BB"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F4BB"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F4BB"
-      }
-    }
-  },
-  {
-    "name": "OFFICE WORKER",
-    "unified": "1F9D1-200D-1F4BC",
-    "short_name": "office_worker",
-    "short_names": ["office_worker"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 290,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F4BC"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F4BC"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F4BC"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F4BC"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F4BC"
-      }
-    }
-  },
-  {
-    "name": "MECHANIC",
-    "unified": "1F9D1-200D-1F527",
-    "short_name": "mechanic",
-    "short_names": ["mechanic"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 284,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F527"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F527"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F527"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F527"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F527"
-      }
-    }
-  },
-  {
-    "name": "SCIENTIST",
-    "unified": "1F9D1-200D-1F52C",
-    "short_name": "scientist",
-    "short_names": ["scientist"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 293,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F52C"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F52C"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F52C"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F52C"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F52C"
-      }
-    }
-  },
-  {
-    "name": "ASTRONAUT",
-    "unified": "1F9D1-200D-1F680",
-    "short_name": "astronaut",
-    "short_names": ["astronaut"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 308,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F680"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F680"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F680"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F680"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F680"
-      }
-    }
-  },
-  {
-    "name": "FIREFIGHTER",
-    "unified": "1F9D1-200D-1F692",
-    "short_name": "firefighter",
-    "short_names": ["firefighter"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 311,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F692"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F692"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F692"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F692"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F692"
-      }
-    }
-  },
-  {
-    "name": "PEOPLE HOLDING HANDS",
-    "unified": "1F9D1-200D-1F91D-200D-1F9D1",
-    "short_name": "people_holding_hands",
-    "short_names": ["people_holding_hands"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 463,
-    "skin_variations": {
-      "1F3FB-1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F91D-200D-1F9D1-1F3FB"
-      },
-      "1F3FB-1F3FC": {
-        "unified": "1F9D1-1F3FB-200D-1F91D-200D-1F9D1-1F3FC"
-      },
-      "1F3FB-1F3FD": {
-        "unified": "1F9D1-1F3FB-200D-1F91D-200D-1F9D1-1F3FD"
-      },
-      "1F3FB-1F3FE": {
-        "unified": "1F9D1-1F3FB-200D-1F91D-200D-1F9D1-1F3FE"
-      },
-      "1F3FB-1F3FF": {
-        "unified": "1F9D1-1F3FB-200D-1F91D-200D-1F9D1-1F3FF"
-      },
-      "1F3FC-1F3FB": {
-        "unified": "1F9D1-1F3FC-200D-1F91D-200D-1F9D1-1F3FB"
-      },
-      "1F3FC-1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F91D-200D-1F9D1-1F3FC"
-      },
-      "1F3FC-1F3FD": {
-        "unified": "1F9D1-1F3FC-200D-1F91D-200D-1F9D1-1F3FD"
-      },
-      "1F3FC-1F3FE": {
-        "unified": "1F9D1-1F3FC-200D-1F91D-200D-1F9D1-1F3FE"
-      },
-      "1F3FC-1F3FF": {
-        "unified": "1F9D1-1F3FC-200D-1F91D-200D-1F9D1-1F3FF"
-      },
-      "1F3FD-1F3FB": {
-        "unified": "1F9D1-1F3FD-200D-1F91D-200D-1F9D1-1F3FB"
-      },
-      "1F3FD-1F3FC": {
-        "unified": "1F9D1-1F3FD-200D-1F91D-200D-1F9D1-1F3FC"
-      },
-      "1F3FD-1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F91D-200D-1F9D1-1F3FD"
-      },
-      "1F3FD-1F3FE": {
-        "unified": "1F9D1-1F3FD-200D-1F91D-200D-1F9D1-1F3FE"
-      },
-      "1F3FD-1F3FF": {
-        "unified": "1F9D1-1F3FD-200D-1F91D-200D-1F9D1-1F3FF"
-      },
-      "1F3FE-1F3FB": {
-        "unified": "1F9D1-1F3FE-200D-1F91D-200D-1F9D1-1F3FB"
-      },
-      "1F3FE-1F3FC": {
-        "unified": "1F9D1-1F3FE-200D-1F91D-200D-1F9D1-1F3FC"
-      },
-      "1F3FE-1F3FD": {
-        "unified": "1F9D1-1F3FE-200D-1F91D-200D-1F9D1-1F3FD"
-      },
-      "1F3FE-1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F91D-200D-1F9D1-1F3FE"
-      },
-      "1F3FE-1F3FF": {
-        "unified": "1F9D1-1F3FE-200D-1F91D-200D-1F9D1-1F3FF"
-      },
-      "1F3FF-1F3FB": {
-        "unified": "1F9D1-1F3FF-200D-1F91D-200D-1F9D1-1F3FB"
-      },
-      "1F3FF-1F3FC": {
-        "unified": "1F9D1-1F3FF-200D-1F91D-200D-1F9D1-1F3FC"
-      },
-      "1F3FF-1F3FD": {
-        "unified": "1F9D1-1F3FF-200D-1F91D-200D-1F9D1-1F3FD"
-      },
-      "1F3FF-1F3FE": {
-        "unified": "1F9D1-1F3FF-200D-1F91D-200D-1F9D1-1F3FE"
-      },
-      "1F3FF-1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F91D-200D-1F9D1-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "PERSON: RED HAIR",
-    "unified": "1F9D1-200D-1F9B0",
-    "short_name": "red_haired_person",
-    "short_names": ["red_haired_person"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 224,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F9B0"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F9B0"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F9B0"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F9B0"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F9B0"
-      }
-    }
-  },
-  {
-    "name": "PERSON: CURLY HAIR",
-    "unified": "1F9D1-200D-1F9B1",
-    "short_name": "curly_haired_person",
-    "short_names": ["curly_haired_person"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 226,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F9B1"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F9B1"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F9B1"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F9B1"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F9B1"
-      }
-    }
-  },
-  {
-    "name": "PERSON: BALD",
-    "unified": "1F9D1-200D-1F9B2",
-    "short_name": "bald_person",
-    "short_names": ["bald_person"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 230,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F9B2"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F9B2"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F9B2"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F9B2"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F9B2"
-      }
-    }
-  },
-  {
-    "name": "PERSON: WHITE HAIR",
-    "unified": "1F9D1-200D-1F9B3",
-    "short_name": "white_haired_person",
-    "short_names": ["white_haired_person"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 228,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-1F9B3"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-1F9B3"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-1F9B3"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-1F9B3"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-1F9B3"
-      }
-    }
-  },
-  {
-    "name": "HEALTH WORKER",
-    "unified": "1F9D1-200D-2695-FE0F",
-    "short_name": "health_worker",
-    "short_names": ["health_worker"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 266,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-2695-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-2695-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-2695-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-2695-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-2695-FE0F"
-      }
-    }
-  },
-  {
-    "name": "JUDGE",
-    "unified": "1F9D1-200D-2696-FE0F",
-    "short_name": "judge",
-    "short_names": ["judge"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 275,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-2696-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-2696-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-2696-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-2696-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-2696-FE0F"
-      }
-    }
-  },
-  {
-    "name": "PILOT",
-    "unified": "1F9D1-200D-2708-FE0F",
-    "short_name": "pilot",
-    "short_names": ["pilot"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 305,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D1-1F3FB-200D-2708-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F9D1-1F3FC-200D-2708-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F9D1-1F3FD-200D-2708-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F9D1-1F3FE-200D-2708-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F9D1-1F3FF-200D-2708-FE0F"
-      }
-    }
   },
   {
     "name": "ADULT",
@@ -19247,60 +17187,6 @@
       },
       "1F3FF": {
         "unified": "1F9D3-1F3FF"
-      }
-    }
-  },
-  {
-    "name": "WOMAN: BEARD",
-    "unified": "1F9D4-200D-2640-FE0F",
-    "short_name": "woman_with_beard",
-    "short_names": ["woman_with_beard"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 217,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D4-1F3FB-200D-2640-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F9D4-1F3FC-200D-2640-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F9D4-1F3FD-200D-2640-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F9D4-1F3FE-200D-2640-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F9D4-1F3FF-200D-2640-FE0F"
-      }
-    }
-  },
-  {
-    "name": "MAN: BEARD",
-    "unified": "1F9D4-200D-2642-FE0F",
-    "short_name": "man_with_beard",
-    "short_names": ["man_with_beard"],
-    "text": null,
-    "texts": null,
-    "category": "Smileys & Emotion",
-    "sort_order": 216,
-    "skin_variations": {
-      "1F3FB": {
-        "unified": "1F9D4-1F3FB-200D-2642-FE0F"
-      },
-      "1F3FC": {
-        "unified": "1F9D4-1F3FC-200D-2642-FE0F"
-      },
-      "1F3FD": {
-        "unified": "1F9D4-1F3FD-200D-2642-FE0F"
-      },
-      "1F3FE": {
-        "unified": "1F9D4-1F3FE-200D-2642-FE0F"
-      },
-      "1F3FF": {
-        "unified": "1F9D4-1F3FF-200D-2642-FE0F"
       }
     }
   },
@@ -22135,24 +20021,98 @@
     "sort_order": 130
   },
   {
-    "name": "HEART ON FIRE",
-    "unified": "2764-FE0F-200D-1F525",
-    "short_name": "heart_on_fire",
-    "short_names": ["heart_on_fire"],
+    "name": "COUPLE WITH HEART: MAN, MAN",
+    "unified": "1F468-200D-2764-FE0F-200D-1F468",
+    "short_name": "man-heart-man",
+    "short_names": ["man-heart-man"],
     "text": null,
     "texts": null,
     "category": "Smileys & Emotion",
-    "sort_order": 132
+    "sort_order": 473
   },
   {
-    "name": "MENDING HEART",
-    "unified": "2764-FE0F-200D-1FA79",
-    "short_name": "mending_heart",
-    "short_names": ["mending_heart"],
+    "name": "KISS: MAN, MAN",
+    "unified": "1F468-200D-2764-FE0F-200D-1F48B-200D-1F468",
+    "short_name": "man-kiss-man",
+    "short_names": ["man-kiss-man"],
     "text": null,
     "texts": null,
     "category": "Smileys & Emotion",
-    "sort_order": 133
+    "sort_order": 469
+  },
+  {
+    "name": "COUPLE WITH HEART: WOMAN, MAN",
+    "unified": "1F469-200D-2764-FE0F-200D-1F468",
+    "short_name": "woman-heart-man",
+    "short_names": ["woman-heart-man"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 472
+  },
+  {
+    "name": "COUPLE WITH HEART: WOMAN, WOMAN",
+    "unified": "1F469-200D-2764-FE0F-200D-1F469",
+    "short_name": "woman-heart-woman",
+    "short_names": ["woman-heart-woman"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 474
+  },
+  {
+    "name": "KISS: WOMAN, MAN",
+    "unified": "1F469-200D-2764-FE0F-200D-1F48B-200D-1F468",
+    "short_name": "woman-kiss-man",
+    "short_names": ["woman-kiss-man"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 468
+  },
+  {
+    "name": "KISS: WOMAN, WOMAN",
+    "unified": "1F469-200D-2764-FE0F-200D-1F48B-200D-1F469",
+    "short_name": "woman-kiss-woman",
+    "short_names": ["woman-kiss-woman"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 470
+  },
+  {
+    "name": "MAN AND WOMAN HOLDING HANDS",
+    "unified": "1F46B",
+    "short_name": "man_and_woman_holding_hands",
+    "short_names": [
+      "man_and_woman_holding_hands",
+      "woman_and_man_holding_hands",
+      "couple"
+    ],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 465
+  },
+  {
+    "name": "TWO MEN HOLDING HANDS",
+    "unified": "1F46C",
+    "short_name": "two_men_holding_hands",
+    "short_names": ["two_men_holding_hands", "men_holding_hands"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 466
+  },
+  {
+    "name": "TWO WOMEN HOLDING HANDS",
+    "unified": "1F46D",
+    "short_name": "two_women_holding_hands",
+    "short_names": ["two_women_holding_hands", "women_holding_hands"],
+    "text": null,
+    "texts": null,
+    "category": "Smileys & Emotion",
+    "sort_order": 464
   },
   {
     "name": "HEAVY BLACK HEART",
