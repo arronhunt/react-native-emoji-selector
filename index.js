@@ -15,17 +15,13 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 const emoji = require("./emoji.json");
 
-export const getEmojiSkinsList = (emojiSkin) => {
-  for (const reaction of emoji) {
-    if (JSON.stringify(reaction).includes(emojiSkin)) {
-      if (reaction.skin_variations) {
-        return Object.values(reaction.skin_variations).map(
-          (skin) => skin.unified
-        );
-      }
-    }
-  }
-  return [emojiSkin];
+export const getEmojiSkinsList = unicode => {
+  let emojiSkinsList = [];
+  const reaction = emoji.find(_emoji => {
+    emojiSkinsList = Object.values(_emoji?.skin_variations || {}).map(emoji => emoji.unified);
+    return _emoji.unified === unicode || emojiSkinsList.some(value => value === unicode);
+  });
+  return reaction ? emojiSkinsList : [unicode];
 };
 
 const favouriteEmojis = [
@@ -241,6 +237,8 @@ const EmojiCell = ({ emoji, colSize, multipleSkins, ...other }) => {
 };
 
 const storage_key = "@react-native-emoji-selector:HISTORY";
+const history_filtered_key = "@react-native-emoji-selector:HISTORY_FILTERED";
+
 export default class EmojiSelector extends Component {
   state = {
     searchQuery: "",
@@ -365,6 +363,19 @@ export default class EmojiSelector extends Component {
     return multipleSkinEmojis;
   };
 
+  getFilteredHistory = history => {
+    const allEmojiSkins = new Set();
+    emoji.forEach(reaction => {
+      allEmojiSkins.add(reaction.unified)
+      if (reaction.skin_variations) {
+        Object.values(reaction.skin_variations).forEach(value => {
+          allEmojiSkins.add(value.unified)
+        })
+      }
+    })
+    return history.filter(recentReaction => allEmojiSkins.has(recentReaction.unified))
+  }
+
   //
   //  RENDER METHODS
   //
@@ -410,16 +421,7 @@ export default class EmojiSelector extends Component {
           });
           list = sortEmoji(filtered);
         } else if (name === Categories.history.name) {
-          const allEmojiSkins = new Set();
-          emoji.forEach(reaction => {
-            allEmojiSkins.add(reaction.unified)
-            if (reaction.skin_variations) {
-              Object.values(reaction.skin_variations).forEach(value => {
-                allEmojiSkins.add(value.unified)
-              })
-            }
-          })
-          list = history.filter(recentReaction => allEmojiSkins.has(recentReaction.unified))
+          list = history;
         } else {
           list = emojiList[name];
         }
@@ -470,9 +472,16 @@ export default class EmojiSelector extends Component {
   //
   async componentDidMount() {
     let history = favouriteEmojis;
-    let recentlyUsed = await this.loadHistoryAsync();
+    const recentlyUsed = await this.loadHistoryAsync();
     if (recentlyUsed) {
       history = [...history, ...recentlyUsed];
+      let isHistoryFiltered = await AsyncStorage.getItem(history_filtered_key);
+      if(!isHistoryFiltered) {
+        history = this.getFilteredHistory(history);
+        const value = history.map(emoji => Object.assign({}, emoji, { count: 1 }));
+        AsyncStorage.setItem(storage_key, JSON.stringify(value));
+        AsyncStorage.setItem(history_filtered_key, "true");
+      }
     }
     history = this.uniqueEmojisOnly(history);
     this.setState({ history });
