@@ -17,11 +17,14 @@ const emoji = require("./emoji.json");
 
 export const getEmojiSkinsList = unicode => {
   let emojiSkinsList = [];
-  const reaction = emoji.find(_emoji => {
-    emojiSkinsList = Object.values(_emoji?.skin_variations || {}).map(emoji => emoji.unified);
-    return _emoji.unified === unicode || emojiSkinsList.some(value => value === unicode);
-  });
-  return reaction ? emojiSkinsList : [unicode];
+  for (const _emoji of emoji) {
+    const skinsList = Object.values(_emoji?.skin_variations || {}).map(emoji => emoji.unified);
+    if (_emoji.unified === unicode || skinsList.some(value => value === unicode)) {
+      emojiSkinsList = skinsList.concat([_emoji.unified]);
+      break;
+    }
+  };
+  return emojiSkinsList;
 };
 
 const favouriteEmojis = [
@@ -268,14 +271,12 @@ export default class EmojiSelector extends Component {
   };
 
   getSkinsList = (emojiData) => {
-    return Object.values(emojiData.skin_variations).map((skin) => skin.unified);
+    return Object.values(emojiData?.skin_variations || {}).map((skin) => skin.unified).concat([emojiData.unified]);
   };
 
   getEmojiType = (emoji, emojiData) => {
     const emojiSkins = {};
-    emojiSkins[emoji] = emojiData.skin_variations
-      ? this.getSkinsList(emojiData)
-      : [emoji];
+    emojiSkins[emoji] = this.getSkinsList(emojiData)
     return emojiSkins;
   };
 
