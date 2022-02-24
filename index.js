@@ -7,10 +7,10 @@ import {
   TextInput,
   Platform,
   ActivityIndicator,
-  AsyncStorage,
   FlatList
 } from "react-native";
 import emoji from "emoji-datasource";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Categories = {
   all: {
