@@ -14,7 +14,7 @@
   "author": "Arron Hunt",
   "license": "MIT",
   "peerDependencies": {
-    "@react-native-community/async-storage": "1.6.2"
+    "@react-native-async-storage/async-storage": "1.17.5"
   },
   "files": [
     "assets",
