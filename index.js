@@ -8,7 +8,6 @@ import {
   Platform,
   ActivityIndicator,
   FlatList,
-  ScrollView,
 } from "react-native";
 import emoji from "emoji-datasource";
 
@@ -319,64 +318,67 @@ export default class EmojiSelector extends Component {
 
     return (
       <View style={styles.frame} {...other} onLayout={this.handleLayout}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {history ? (
-            <Text style={styles.sectionHeader}>{titlesEmojiHistory}</Text>
-          ) : null}
-          <View style={styles.tabBar}>
-            {history
-              ? history.map((item) => {
-                  return (
-                    <EmojiCell
-                      emoji={item}
-                      onPress={() => this.handleEmojiSelect(item)}
-                      colSize={this.state.colSize}
-                    />
-                  );
-                })
-              : null}
-          </View>
-          <View style={styles.tabBar}>
-            {showTabs && (
-              <TabBar
-                activeCategory={category}
-                onPress={this.handleTabSelect}
-                theme={theme}
-                width={this.state.width}
-              />
-            )}
-          </View>
-          <View style={{ flex: 1 }}>
-            {showSearchBar && Searchbar}
-            {isReady ? (
-              <View style={{ flex: 1 }}>
-                <View style={styles.container}>
-                  {showSectionTitles ? (
-                    <Text style={styles.sectionHeader}>{titlesEmoji}</Text>
-                  ) : null}
-                  <FlatList
-                    style={styles.scrollview}
-                    contentContainerStyle={{ paddingBottom: colSize }}
-                    data={this.returnSectionData()}
-                    renderItem={this.renderEmojiCell}
-                    horizontal={false}
-                    numColumns={columns}
-                    keyboardShouldPersistTaps={"always"}
-                    ref={(scrollview) => (this.scrollview = scrollview)}
-                    removeClippedSubviews
-                  />
-                </View>
-              </View>
-            ) : (
-              <View style={styles.loader} {...other}>
-                <ActivityIndicator
-                  size={"large"}
-                  color={Platform.OS === "android" ? theme : "#000000"}
+        <View style={{ flex: 1 }}>
+          {showSearchBar && Searchbar}
+          {isReady ? (
+            <View style={{ flex: 1 }}>
+              <View style={styles.container}>
+                <FlatList
+                  style={styles.scrollview}
+                  contentContainerStyle={{ paddingBottom: colSize }}
+                  data={this.returnSectionData()}
+                  renderItem={this.renderEmojiCell}
+                  horizontal={false}
+                  numColumns={columns}
+                  keyboardShouldPersistTaps={"always"}
+                  ref={(scrollview) => (this.scrollview = scrollview)}
+                  removeClippedSubviews
+                  showsVerticalScrollIndicator={false}
+                  ListHeaderComponent={
+                    <View>
+                      {history ? (
+                        <>
+                          <Text style={styles.sectionHeader}>
+                            {titlesEmojiHistory}
+                          </Text>
+                          <View style={styles.tabBar}>
+                            {history.map((item) => (
+                              <EmojiCell
+                                emoji={item}
+                                onPress={() => this.handleEmojiSelect(item)}
+                                colSize={this.state.colSize}
+                              />
+                            ))}
+                          </View>
+                          {showTabs && (
+                            <View style={styles.tabBar}>
+                              <TabBar
+                                activeCategory={category}
+                                onPress={this.handleTabSelect}
+                                theme={theme}
+                                width={this.state.width}
+                              />
+                            </View>
+                          )}
+                        </>
+                      ) : null}
+                      {showSectionTitles ? (
+                        <Text style={styles.sectionHeader}>{titlesEmoji}</Text>
+                      ) : null}
+                    </View>
+                  }
                 />
               </View>
-            )}
-          </View>
-        </ScrollView>
+            </View>
+          ) : (
+            <View style={styles.loader} {...other}>
+              <ActivityIndicator
+                size={"large"}
+                color={Platform.OS === "android" ? theme : "#000000"}
+              />
+            </View>
+          )}
+        </View>
       </View>
     );
   }
